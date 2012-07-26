@@ -1,0 +1,34 @@
+Généralités
+-----------
+
+Vous trouvez ici des programmes pour HP-41 pour convertir des dates du
+calendrier grégorien vers le calendrier républicain.
+
+Ces  programmes  sont  copyright  (c)  2012, Jean  Forget.   Ils  sont
+diffusés  sous la  licence double  GPL et  licence artistique  (cf. le
+fichier LICENSE).
+
+Installation
+------------
+
+Pour installer ce programme, il vous faut un outil, disponible dans un
+autre dépôt Git Hub.
+
+https://github.com/jforget/perl-literate-prog-HP48-HP50
+
+Ce n'est pas un outil à  installer sur la calculatrice HP, mais sur un
+ordinateur (PC ou  autre). Il faut avoir également  sur cet ordinateur
+Graphviz, Perl ainsi que les modules YAML.pm et GraphViz.pm.
+
+http://www.graphviz.org/
+http://www.perl.org/
+http://search.cpan.org/dist/YAML/
+http://search.cpan.org/dist/GraphViz/
+
+Une fois tout ceci installé, lancez la commande
+
+genere-hpweb hp-41-calfr
+
+Cela génère plusieurs fichiers, dont hp-41-calfr.fr.html.  La suite de
+l'installation  est expliquée dans  ce fichier.   Vous pouvez  le lire
+dans un navigateur web.

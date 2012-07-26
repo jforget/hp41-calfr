@@ -1,0 +1,300 @@
+fr: Calendrier républicain pour HP-41
+en: French Revolutionary Calendar for HP-41
+calfr: code41
+---
+- section: 0
+  'fr,en': Introduction
+- fr: |
+    Ce programme pour HP-41CX permet de convertir une date du calendrier
+    grégorien vers le calendrier républicain. Il n'est pas
+    limité à la période réelle d'utilisation du calendrier 
+    républicain, vous pouvez demander la conversion de toute
+    date des XIX<sup>e</sup>, XX<sup>e</sup> et XXI<sup>e</sup>
+    siècles.
+- en: |
+    This program for HP-41CX allows you to convert dates
+    from the Gregorian calendar to the French Revolutionary
+    Calendar. It is not limited to the historical use period
+    of the French Revolutionary calendar, you can convert
+    later dates, in the whole XIXth, XXth and XXIth centuries.
+- section: 0
+  fr: Mode d'emploi
+  en: Instructions for Use
+- fr: |
+    Entrez la date au format <tt>jj.mmaaaa</tt> dans le registre X,
+    positionnez-vous au début du programme (<tt>RTN</tt>) puis 
+    lancez-le (<tt>R/S</tt>). Ou bien lancez-le par 
+    <tt>XEQ alpha CALFR alpha</tt>.
+
+    Le résultat se trouve dans le registre alpha, au format 
+    <tt>JJ MOIS AAAA</tt>, où <tt>MOIS</tt> est l'abréviation en trois lettres
+    du mois.
+- en: |
+    Enter the date in <tt>dd.mmyyyy</tt> format into the X register,
+    go to the beginning of the program (<tt>RTN</tt>) then 
+    run it (<tt>R/S</tt>). You can run the program with
+    <tt>XEQ alpha CALFR alpha</tt>.
+
+    The result is in the alpha register, in <tt>DD MON YYYY</tt>
+    format, with <tt>MON</tt> a 3-letter abbreviation of the month.
+- section: 0
+  'fr,en': Installation
+- section: 0
+  fr: Pré-requis
+  en: Prerequisite
+  level: 3
+- fr: |
+    Ce programme nécessite une HP-41CX ou, peut-être, une
+    HP-41 avec un module <i lang='en'>Time</i> et un moduile
+    <i lang='en'>Extended Functions</i>. Le programme
+    utilise les fonctions <tt>ddays</tt>, <tt>dmy</tt>
+    <tt>rclflags</tt> and <tt>stoflags</tt>.
+
+    Le programme utilise les mémoires 00 à 06.
+
+    Il n'y a pas d'instruction de programmation synthétique.
+- en: |
+    This program requires a HP-41CX or, maybe, a lower HP-41
+    with a Time and an Extended Functions modules. The program uses the <tt>ddays</tt>,
+    <tt>dmy</tt>, <tt>rclflags</tt> and <tt>stoflags</tt> functions.
+
+    The program uses the memory registers 00 to 06.
+
+    There is no synthetic programming in this program.
+- section: 0
+  fr: Conventions d'écriture
+  en: Conventions
+  level: 3
+- fr: |
+    L'ajout de chaîne (le symbole «&nbsp;<tt>|-</tt>&nbsp;») se représente
+    par la notation <tt>&gt;"chaine"</tt>. Le signe supérieur
+    à l'extérieur des guillemets est censé représenter le 
+    symbole «&nbsp;<tt>|-</tt>&nbsp;» qui se serait trouvé à l'intérieur
+    des guillemets. C'est l'une des notations utilisées
+    par <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
+- en: |
+    The "append" string (symbol "<tt>|-</tt>") is represented by
+    the notation <tt>&gt;"string"</tt>. The "greater than" sign
+    outside the quotes is meant to evoke the "<tt>|-</tt>" symbol
+    inside the string. This one of the notation used by
+    <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
+- section: 0
+  fr: HP-41 réelle
+  en: Real HP-41
+- fr: |
+    La seule façon de rentrer ce programme consiste à le taper.
+    Toutefois, si vous avez une unité de disque  fonctionnant
+    sous HP-IL ou un lecteur de codes-barres, vous pouvez jeter
+    un coup d'oeil au
+    <a href="http://www.hpmuseum.org/software/41uc.htm#wand">générateur de codes-barres</a>,
+    à la <a href="http://www.hpmuseum.org/software/41uc.htm#sdt">méthode des disques navettes</a>
+    ou à la <a href="http://www.hpmuseum.org/software/41uc.htm#dlt">technique du lien direct</a>
+    dans la documentation de l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>.
+- en: |
+    The only way to enter this program into a real-world HP-41
+    is by typing it. Although, if you have a disque drive that
+    can be used with HP-IL or a barcode reader, you can have a
+    look at the
+    <a href="http://www.hpmuseum.org/software/41uc.htm#wand">barcode generator</a>,
+    the <a href="http://www.hpmuseum.org/software/41uc.htm#sdt">shuttle disk method</a>
+    or the <a href="http://www.hpmuseum.org/software/41uc.htm#dlt">direct link technique</a>
+    in the documentation of the <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a> tool.
+- section: 0
+  'fr,en': v41
+- fr: |
+    Pour l'émulateur v41, utilisez
+    l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
+    pour convertir le fichier texte en fichier <i lang='en'>raw</i>.
+- en: |
+    For the v41 emulator, use the
+    <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
+    tool to convert the text file into raw format.
+- section: 0
+  'fr,en': nonpareil
+- fr: |
+    Pour l'émulateur «&nbsp;nonpareil&nbsp;», la seule façon
+    que je connaisse consiste à tout taper, de début jusqu'à la
+    fin. Si je trouve mieux, je vous l'indiquerai dans une 
+    nouvelle version de cette distribution.
+- en: |
+    For the "nonpareil" simulator, the only way that I know to
+    enter this program consists in typing it from the beginning
+    to the end. If I learn of another way, I will let you know
+    in a new version.
+- section: 0
+  fr: Le programme
+  en: The program
+- section: calfr1
+  calfr: 1
+- code: |
+    lbl "CALFR"
+    lbl 30
+    22,091792
+    dmy
+    x<>y
+    ddays
+    sto 00
+    365
+    /
+    int
+    2
+    +
+    sto 01
+    lbl 00
+    1
+    st- 01
+    rcl 01
+    xeq 20
+    rcl 01
+    365
+    *
+    lastx
+    -
+    +
+    rcl 00
+    x<>y
+    x>y?
+    gto 00
+    -
+    sto 03
+    30
+    /
+    int
+    sto 02
+    30
+    *
+    st- 03
+    1
+    st+ 02
+    st+ 03
+    xeq ind 02
+    rclflag
+    fix 0
+    cf 29
+    asto y
+    cla
+    arcl 03
+    >" "
+    arcl y
+    >" "
+    arcl 01
+    aview
+    stoflag
+    clx
+    rtn
+    gto 30
+    |frbis|
+    |months|
+    end
+- section: frbis
+  fr: Nombre d'années bissextiles avant l'année N
+  en: Number of leap years before year N
+- code: |
+    lbl 20
+    1
+    -
+    sto 05
+    4
+    /
+    int
+    sto 06
+    rcl 05
+    100
+    /
+    int
+    st- 06
+    rcl 05
+    400
+    /
+    int
+    st+ 06
+    rcl 05
+    15
+    x<y?
+    gto 22
+    x=y?
+    gto 21
+    rdn
+    11
+    x=y?
+    gto 21
+    rdn
+    7
+    x=y?
+    gto 21
+    rdn
+    3
+    x=y?
+    gto 21
+    lbl 22
+    rcl 06
+    rtn
+    lbl 21
+    rcl 06
+    1
+    +
+    rtn
+- section: months
+  fr: Abréviations des mois
+  en: Month abbreviations
+- fr: |
+    Cette section permet d'obtenir l'abréviation du mois
+    du calendrier républicain. L'une de ces étiquettes
+    est appelée par <tt>XEQ IND 02</tt>
+    sachant que le registre R02 contient le mois sous forme
+    numérique.
+- en: |
+    This section gives the abbreviated month from the 
+    French Revolutionary calendar. One of these labels 
+    is called by <tt>XEQ IND 02</tt>, because the R02
+    register contains the numeric month.
+- code: |
+    lbl 01
+    "VND"
+    rtn
+    lbl 02
+    "BRU"
+    rtn
+    lbl 03
+    "FRI"
+    rtn
+    lbl 04
+    "NIV"
+    rtn
+    lbl 05
+    "PLU"
+    rtn
+    lbl 06
+    "VNT"
+    rtn
+    lbl 07
+    "GER"
+    rtn
+    lbl 08
+    "FLO"
+    rtn
+    lbl 09
+    "PRA"
+    rtn
+    lbl 10
+    "MES"
+    rtn
+    lbl 11
+    "THE"
+    rtn
+    lbl 12
+    "FRU"
+    rtn
+    lbl 13
+    "S-C"
+    rtn
+- section: 0
+  fr: Licence
+  en: License
+- fr: |
+    Ce code est diffusé sous les mêmes termes que Perl, la licence GPL
+    et la licence artistique. Voir le fichier <tt>LICENSE</tt> (en anglais)
+    fourni dans le paquetage.
+- en: |
+    This code is published under the same terms as Perl: GPL and Artistic License.
+    See the <tt>LICENSE</tt> file provided in the package.
