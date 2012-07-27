@@ -45,7 +45,7 @@ calfr: code41
   level: 3
 - fr: |
     Ce programme nécessite une HP-41CX ou, peut-être, une
-    HP-41 avec un module <i lang='en'>Time</i> et un moduile
+    HP-41 avec un module <i lang='en'>Time</i> et un module
     <i lang='en'>Extended Functions</i>. Le programme
     utilise les fonctions <tt>ddays</tt>, <tt>dmy</tt>
     <tt>rclflags</tt> and <tt>stoflags</tt>.
@@ -85,7 +85,7 @@ calfr: code41
     La seule façon de rentrer ce programme consiste à le taper.
     Toutefois, si vous avez une unité de disque  fonctionnant
     sous HP-IL ou un lecteur de codes-barres, vous pouvez jeter
-    un coup d'oeil au
+    un coup d'œil au
     <a href="http://www.hpmuseum.org/software/41uc.htm#wand">générateur de codes-barres</a>,
     à la <a href="http://www.hpmuseum.org/software/41uc.htm#sdt">méthode des disques navettes</a>
     ou à la <a href="http://www.hpmuseum.org/software/41uc.htm#dlt">technique du lien direct</a>
