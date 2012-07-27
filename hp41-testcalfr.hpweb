@@ -1,0 +1,210 @@
+fr: Calendrier républicain pour HP-41
+en: French Revolutionary Calendar for HP-41
+testcf1: code41
+---
+- section: 0
+  'fr,en': Introduction
+- fr: |
+    Ce programme pour HP-41CX contient une suite de  tests pour <tt>CALFR</tt>.
+- en: |
+    This program for HP-41CX gives a test suite for <tt>CALFR</tt>.
+- section: 0
+  fr: Mode d'emploi
+  en: Instructions for Use
+- fr: |
+    Positionnez votre calculatrice en mode <tt>DMY</tt>.
+    Lancez le programme. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
+    c'est qu'il y a une erreur. La date grégorienne utilisée se trouve dans le
+    registre X et la date républicaine attendue dans le registre alpha.
+- en: |
+    Set-up you computer in <tt>DMY</tt> mode. Run the program.
+    If it stops with a <tt>TONE&nbsp;0</tt>, there has been an
+    error. The Gregorian date is in register X, the expected 
+    French Revolutionary date is in register alpha.
+- section: 0
+  'fr,en': Installation
+- section: 0
+  fr: Pré-requis
+  en: Prerequisite
+  level: 3
+- fr: |
+    Ce programme nécessite une HP-41CX ou, peut-être, une
+    HP-41 avec un module <i lang='en'>Time</i> et un moduile
+    <i lang='en'>Extended Functions</i>. Le programme
+    utilise les fonctions <tt>ddays</tt>, <tt>dmy</tt>
+    <tt>rclflags</tt> and <tt>stoflags</tt>.
+
+    Le programme utilise les mémoires 00 à 06.
+
+    Il n'y a pas d'instruction de programmation synthétique.
+- en: |
+    This program requires a HP-41CX or, maybe, a lower HP-41
+    with a Time and an Extended Functions modules. The program uses the <tt>ddays</tt>,
+    <tt>dmy</tt>, <tt>rclflags</tt> and <tt>stoflags</tt> functions.
+
+    The program uses the memory registers 00 to 06.
+
+    There is no synthetic programming in this program.
+- section: 0
+  fr: Conventions d'écriture
+  en: Conventions
+  level: 3
+- fr: |
+    L'ajout de chaîne (le symbole «&nbsp;<tt>|-</tt>&nbsp;») se représente
+    par la notation <tt>&gt;"chaine"</tt>. Le signe supérieur
+    à l'extérieur des guillemets est censé représenter le 
+    symbole «&nbsp;<tt>|-</tt>&nbsp;» qui se serait trouvé à l'intérieur
+    des guillemets. C'est l'une des notations utilisées
+    par <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
+- en: |
+    The "append" string (symbol "<tt>|-</tt>") is represented by
+    the notation <tt>&gt;"string"</tt>. The "greater than" sign
+    outside the quotes is meant to evoke the "<tt>|-</tt>" symbol
+    inside the string. This one of the notation used by
+    <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
+- section: 0
+  fr: HP-41 réelle
+  en: Real HP-41
+- fr: |
+    La seule façon de rentrer ce programme consiste à le taper.
+    Mais le jeu en vaut-il la chandelle&nbsp;?
+
+    Toutefois, si vous avez une unité de disque  fonctionnant
+    sous HP-IL ou un lecteur de codes-barres, vous pouvez jeter
+    un coup d'œil au
+    <a href="http://www.hpmuseum.org/software/41uc.htm#wand">générateur de codes-barres</a>,
+    à la <a href="http://www.hpmuseum.org/software/41uc.htm#sdt">méthode des disques navettes</a>
+    ou à la <a href="http://www.hpmuseum.org/software/41uc.htm#dlt">technique du lien direct</a>
+    dans la documentation de l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>.
+- en: |
+    The only way to enter this program into a real-world HP-41
+    is by typing it. But is it worth it?
+
+    Although, if you have a disque drive that
+    can be used with HP-IL or a barcode reader, you can have a
+    look at the
+    <a href="http://www.hpmuseum.org/software/41uc.htm#wand">barcode generator</a>,
+    the <a href="http://www.hpmuseum.org/software/41uc.htm#sdt">shuttle disk method</a>
+    or the <a href="http://www.hpmuseum.org/software/41uc.htm#dlt">direct link technique</a>
+    in the documentation of the <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a> tool.
+- section: 0
+  'fr,en': v41
+- fr: |
+    Pour l'émulateur v41, utilisez
+    l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
+    pour convertir le fichier texte en fichier <i lang='en'>raw</i>.
+- en: |
+    For the v41 emulator, use the
+    <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
+    tool to convert the text file into raw format.
+- section: 0
+  'fr,en': nonpareil
+- fr: |
+    Pour l'émulateur «&nbsp;nonpareil&nbsp;», la seule façon
+    que je connaisse consiste à tout taper, de début jusqu'à la
+    fin. Si je trouve mieux, je vous l'indiquerai dans une 
+    nouvelle version de cette distribution.
+- en: |
+    For the "nonpareil" simulator, the only way that I know to
+    enter this program consists in typing it from the beginning
+    to the end. If I learn of another way, I will let you know
+    in a new version.
+- section: 0
+  fr: Le programme
+  en: The program
+- section: check
+- code: |
+    lbl 01
+    sto 10
+    asto 11
+    ashf
+    asto 12
+    xeq "CALFR"
+    asto x
+    rcl 11
+    x#y?
+    gto 02
+    ashf
+    asto x
+    rcl 12
+    x=y?
+    rtn
+    lbl 02
+    cla
+    arcl 11
+    arcl 12
+    rcl 10
+    tone 0
+    prompt
+    rtn
+- section: testcf1
+  testcf1: 1
+- code: |
+    lbl "TESTCF1"
+    lbl 00
+    22.091792
+                 "1 VND 1"
+                             XEQ 01
+    23.101793
+                 "2 BRU 2"
+                             XEQ 01
+    27.071794
+                 "9 THE 2"
+                             XEQ 01
+    23.111794
+                 "3 FRI 3"
+                             XEQ 01
+    05.101795
+                 "13 VND 4"
+                             XEQ 01
+    25.121795
+                 "4 NIV 4"
+                             XEQ 01
+    24.011797
+                 "5 PLU 5"
+                             XEQ 01
+    24.021798
+                 "6 VNT 6"
+                             XEQ 01
+    09.111799
+                 "18 BRU 8"
+                             XEQ 01
+    29.031801
+                 "8 GER 9"
+                             XEQ 01
+    30.041804
+                 "10 FLO 12"
+                             XEQ 01
+    01.061807
+                 "12 PRA 15"
+                             XEQ 01
+    03.071810
+                 "14 MES 18"
+                             XEQ 01
+    04.081813
+                 "16 THE 21"
+                             XEQ 01
+    04.091816
+                 "18 FRU 24"
+                             XEQ 01
+    01.012000
+                 "12 NIV 208"
+                             XEQ 01
+    11.052001
+                 "22 FLO 209"
+                             XEQ 01
+    stop
+    gto 00
+    rtn
+    |check|
+    end
+- section: 0
+  fr: Licence
+  en: License
+- fr: |
+    Ce code est diffusé sous les mêmes termes que Perl, la licence GPL
+    et la licence artistique. Voir le fichier <tt>LICENSE</tt> (en anglais)
+    fourni dans le paquetage.
+- en: |
+    This code is published under the same terms as Perl: GPL and Artistic License.
+    See the <tt>LICENSE</tt> file provided in the package.
