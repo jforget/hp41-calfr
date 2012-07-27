@@ -1,5 +1,5 @@
-fr: Calendrier républicain pour HP-41
-en: French Revolutionary Calendar for HP-41
+fr: Calendrier républicain pour HP-41, tests
+en: French Revolutionary Calendar for HP-41, tests
 testcf1: code41
 ---
 - section: 0
@@ -29,39 +29,23 @@ testcf1: code41
   level: 3
 - fr: |
     Ce programme nécessite une HP-41CX ou, peut-être, une
-    HP-41 avec un module <i lang='en'>Time</i> et un moduile
-    <i lang='en'>Extended Functions</i>. Le programme
-    utilise les fonctions <tt>ddays</tt>, <tt>dmy</tt>
-    <tt>rclflags</tt> and <tt>stoflags</tt>.
+    HP-41 avec un module <i lang='en'>Time</i> et un module
+    <i lang='en'>Extended Functions</i>. Il faut avoir installé
+    <tt>CALFR</tt>.
 
-    Le programme utilise les mémoires 00 à 06.
+    Le programme utilise les mémoires 10 à 12, sachant que de son côté
+    <tt>CALFR</tt> utilise les mémoires 00 à 06.
 
     Il n'y a pas d'instruction de programmation synthétique.
 - en: |
     This program requires a HP-41CX or, maybe, a lower HP-41
-    with a Time and an Extended Functions modules. The program uses the <tt>ddays</tt>,
-    <tt>dmy</tt>, <tt>rclflags</tt> and <tt>stoflags</tt> functions.
+    with a Time and an Extended Functions modules. You must
+    have <tt>CALFR</tt> installed on your HP-41.
 
-    The program uses the memory registers 00 to 06.
+    The program uses the memory registers 10 to 12, while
+    <tt>CALFR</tt> uses memory registers 00 to 06.
 
     There is no synthetic programming in this program.
-- section: 0
-  fr: Conventions d'écriture
-  en: Conventions
-  level: 3
-- fr: |
-    L'ajout de chaîne (le symbole «&nbsp;<tt>|-</tt>&nbsp;») se représente
-    par la notation <tt>&gt;"chaine"</tt>. Le signe supérieur
-    à l'extérieur des guillemets est censé représenter le 
-    symbole «&nbsp;<tt>|-</tt>&nbsp;» qui se serait trouvé à l'intérieur
-    des guillemets. C'est l'une des notations utilisées
-    par <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
-- en: |
-    The "append" string (symbol "<tt>|-</tt>") is represented by
-    the notation <tt>&gt;"string"</tt>. The "greater than" sign
-    outside the quotes is meant to evoke the "<tt>|-</tt>" symbol
-    inside the string. This one of the notation used by
-    <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
 - section: 0
   fr: HP-41 réelle
   en: Real HP-41
@@ -113,6 +97,18 @@ testcf1: code41
   fr: Le programme
   en: The program
 - section: check
+- fr: |
+    Ce sous-programme reçoit une date grégorienne dans le registre
+    X et la valeur attendue de la date républicaine dans le registre
+    alpha. Il calcule la date républicaine et la compare avec la
+    valeur attendue. S'il y a un écart, il affiche les deux paramètres
+    d'entrée, émet un son et s'arrête.
+- en: |
+    This subprogram receives a Gregorian date in register X and the
+    expected value for the French Revolutionary date in alpha register.
+    It computes the French Revolutionary date and compares it with
+    the expected value. If they differ, it retrieves the input parameters,
+    emits a tone and stops.
 - code: |
     lbl 01
     sto 10
