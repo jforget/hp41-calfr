@@ -129,11 +129,7 @@ calfr: code41
 - code: |
     lbl "CALFR"
     lbl 30
-    22,091792
-    dmy
-    x<>y
-    ddays
-    sto 00
+    |frrdn|
     365
     /
     int
@@ -167,6 +163,85 @@ calfr: code41
     1
     st+ 02
     st+ 03
+    |display|
+    clx
+    rtn
+    gto 30
+    |frbis|
+    |months|
+- section: frrdn
+  fr: Calcul du <i lang='la'>Franciscus Revolutionarius Rata Die</i>
+  en: Computing the <i lang='la'>Franciscus Revolutionarius Rata Die</i>
+- fr: |
+    Habituellement, les programmes de conversion de calendrier utilisent
+    un calendrier intermédiaire qui ignore les années, les mois et les semaines
+    et qui identifie les jours par leur numéro d'ordre à partir d'une date
+    origine. Il y a ainsi le <i lang='en'>Julian Day Number</i>,
+    le <i lang='en'>Modified Julian Day Number</i> et le
+    <i lang='la'>Rata Die</i>, qui identifie les jours à partir de l'origine
+    du calendrier grégorien proleptique, le 1<sup>er</sup> janvier de l'an 1.
+    J'utilise ici sa variante républicaine, que j'ai appelée
+    <i lang='la'>Franciscus Revolutionarius Rata Die</i> ou FRRD, qui compte les
+    jours à partir du 1<sup>er</sup> vendémiaire de l'an I, soit le 
+    22 septembre 1792. Ce jour porte le numéro FRRD 0 pour des raisons
+    de commodité de programmation.
+- en: |
+    Usually, the programs converting from a calendar to another use
+    some intermediary calendar which ignores years, months and weeks
+    and identifies the various days by the number of days elapsed since
+    a given epoch. There are the Julian Day Number, the Modifier Julian
+    Day Number and the <i lang='la'>Rata Die</i>, which counts the days
+    since the epoch of the proleptic Gregorian Calendar, that is,
+    1 January of year 1. My program uses a variant,
+    <i lang='la'>Franciscus Revolutionarius Rata Die</i> or FRRD, 
+    which counts the days since the epoch of the French Revolutionary Calendar,
+    1 Vendémiaire I or 22 September 1792.
+    This day has number 0 in this system, so the program will be simpler.
+- code: |
+    22,091792
+    dmy
+    x<>y
+    ddays
+    sto 00
+- section: display
+  fr: affichage de la date
+  en: displaying the date
+- fr: |
+    Bien que la date soit affichée au format
+    «&nbsp;jour mois an&nbsp;», on commence par afficher le mois.
+    Le mois figure sous forme numérique dans le registre 02
+    et il est converti dans le registre alpha par l'appel
+    indirect des labels 01 à 13 (12 = "FRU" pour Fructidor
+    et 13 pour les cinq ou six jours complémentaires,
+    "sans-culottides" abrégés en "S-C"). Ensuite, le 
+    mois en 3 caractères est stocké dans le registre Y
+    puis, dans le registre alpha, le programme affiche
+    dans l'ordre le jour, le mois et l'année avec des
+    blancs intermédiaires.
+
+    Certes, faire passer le mois par le registre Y
+    nécessite l'utiisation de plusieurs pas de programme,
+    donc de plusieurs octets, mais cela permet dans les
+    labels 01 à 13 de saisir l'abréviation du mois sur 
+    3 caractères, sans le caractère «&nbsp;append&nbsp;»,
+    ce qui aurait ajouté 13 octets à la taille du programme.
+- en: |
+    Although the date is displayed with the day-month-year
+    format, the program begins with converting the month
+    from numeric (in register 02) to alphabetic (alpha register).
+    This is acheived with an indirect XEQ, using labels 01
+    to 13 (12 for Fructidor as "FRU" and 13 for the 5 or 6
+    additional days, named <i lang='fr'>sans-culottides</i>
+    and abbreviated as "S-C"). Then the 3-char abbreviation
+    is stored into register Y and the program displays
+    the day, the month and the year separated by whitespace.
+
+    Of course, you need a few program steps, therefore a few
+    bytes, to store the month abbreviation into register Y
+    and then to retrieve it, but this allows to write
+    the month abbreviations in labels 01 to 13 without 
+    the "append" character, which saves 13 bytes.
+- code: |
     xeq ind 02
     rclflag
     fix 0
@@ -180,15 +255,104 @@ calfr: code41
     arcl 01
     aview
     stoflag
-    clx
-    rtn
-    gto 30
-    |frbis|
-    |months|
-    end
 - section: frbis
   fr: Nombre d'années bissextiles avant l'année N
   en: Number of leap years before year N
+- fr: |
+    Ce sous-programme donne le nombre d'années bissextiles
+    qui ont eu lieu avant l'année courante (fournie dans le
+    registre X). Il permet
+    d'affiner le calcul de la date, par rapport à l'estimation
+    obtenue en prenant des années à 365&nbsp;jours.
+
+    La règle pour les années bissextiles était une règle astronomique
+    jusqu'en l'an XX, le premier Vendémiaire devant coïncider avec
+    l'équinoxe d'automne. Ensuite, la réforme de Gilbert Romme
+    aurait fait appliquer une règle arithmétique analogue à 
+    celle du calendrier grégorien.
+- en: |
+    This subroutine gives the number of leap years preceding
+    the current year (transmitted in register X). It allows refining
+    the date computation, initialised with a computation using only
+    365-day years.
+
+    Until year XX, the leap year rule is an astronomical rule,
+    considering the 1st Vendémiaire should happen on the 
+    fall equinox. Then from year XX on, there would have
+    been an arithmetical rule, similar to the Gregorian Calendar
+    rule, introduced by Gilbert Romme's reform.
+- fr: |
+    Voici la comparaison des deux règles pour le début de l'ère
+    républicaine. Les deux colonnes «&nbsp;arithmétique&nbsp;»
+    simulent l'hypothèse où la règle arithmétique aurait été
+    en vigueur dès le début. Les deux colonnnes «&nbsp;astronomique&nbsp;»
+    présentent le cas réel&nbsp;: règle astronomique au début
+    et règle arithmétique ensuite. Les colonnes «&nbsp;Bis&nbsp;?&nbsp;»
+    indiquent par un «&nbsp;X&nbsp;» si l'année est bissextile
+    en fonction de la règle utilisée. Les colonnes «&nbsp;frbis&nbsp;»
+    indiquent le résultat du calcul de la fonction.
+- en: |
+    See below the comparison between both rules for the beginning
+    of the Republican Era. The two "arithmetic" columns simulate
+    the hypothesis of applying the arithmetic rule from the beginning
+    of the era. The "Astronomical" columns show the actual case, 
+    with the astronomical rule at first and the arithmetic rule
+    after. The columns "Leap?" indicates leap years with an "X".
+    The columns "frbis" show the result of the computation.
+- fr: |
+    <table border='1'>
+    <tr align='center'><td>     </td><td colspan='2'>Arithmétique</td><td colspan='2'>Astronomique</td></tr>
+    <tr align='center'><td>Année</td><td>Bis ?</td><td>frbis </td><td>Bis ?</td><td>frbis </td></tr>
+- en: |
+    <table border='1'>
+    <tr align='center'><td>     </td><td colspan='2'> Arithmetic </td><td colspan='2'>Astronomical</td></tr>
+    <tr align='center'><td>Year </td><td>Leap?</td><td>frbis </td><td>Leap?</td><td>frbis </td></tr>
+
+- 
+  'en,fr': |
+    <tr align='center'><td>  1  </td><td>&nbsp;</td><td>  0   </td><td>&nbsp;</td><td>  0   </td></tr>
+    <tr align='center'><td>  2  </td><td>&nbsp;</td><td>  0   </td><td>&nbsp;</td><td>  0   </td></tr>
+    <tr align='center'><td>  3  </td><td>&nbsp;</td><td>  0   </td><td>  x   </td><td>  0   </td></tr>
+    <tr align='center'><td>  4  </td><td>  x   </td><td>  0   </td><td>&nbsp;</td><td>  1   </td></tr>
+    <tr align='center'><td>  5  </td><td>&nbsp;</td><td>  1   </td><td>&nbsp;</td><td>  1   </td></tr>
+    <tr align='center'><td>  6  </td><td>&nbsp;</td><td>  1   </td><td>&nbsp;</td><td>  1   </td></tr>
+    <tr align='center'><td>  7  </td><td>&nbsp;</td><td>  1   </td><td>  x   </td><td>  1   </td></tr>
+    <tr align='center'><td>  8  </td><td>  x   </td><td>  1   </td><td>&nbsp;</td><td>  2   </td></tr>
+    <tr align='center'><td>  9  </td><td>&nbsp;</td><td>  2   </td><td>&nbsp;</td><td>  2   </td></tr>
+    <tr align='center'><td> 10  </td><td>&nbsp;</td><td>  2   </td><td>&nbsp;</td><td>  2   </td></tr>
+    <tr align='center'><td> 11  </td><td>&nbsp;</td><td>  2   </td><td>  x   </td><td>  2   </td></tr>
+    <tr align='center'><td> 12  </td><td>  x   </td><td>  2   </td><td>&nbsp;</td><td>  3   </td></tr>
+    <tr align='center'><td> 13  </td><td>&nbsp;</td><td>  3   </td><td>&nbsp;</td><td>  3   </td></tr>
+    <tr align='center'><td> 14  </td><td>&nbsp;</td><td>  3   </td><td>&nbsp;</td><td>  3   </td></tr>
+    <tr align='center'><td> 15  </td><td>&nbsp;</td><td>  3   </td><td>  x   </td><td>  3   </td></tr>
+    <tr align='center'><td> 16  </td><td>  x   </td><td>  3   </td><td>&nbsp;</td><td>  4   </td></tr>
+    <tr align='center'><td> 17  </td><td>&nbsp;</td><td>  4   </td><td>&nbsp;</td><td>  4   </td></tr>
+    <tr align='center'><td> 18  </td><td>&nbsp;</td><td>  4   </td><td>&nbsp;</td><td>  4   </td></tr>
+    <tr align='center'><td> 19  </td><td>&nbsp;</td><td>  4   </td><td>&nbsp;</td><td>  4   </td></tr>
+    <tr align='center'><td> 20  </td><td>  x   </td><td>  4   </td><td>  x   </td><td>  4   </td></tr>
+    <tr align='center'><td> 21  </td><td>&nbsp;</td><td>  5   </td><td>&nbsp;</td><td>  5   </td></tr>
+    <tr align='center'><td> 22  </td><td>&nbsp;</td><td>  5   </td><td>&nbsp;</td><td>  5   </td></tr>
+    <tr align='center'><td> 23  </td><td>&nbsp;</td><td>  5   </td><td>&nbsp;</td><td>  5   </td></tr>
+    <tr align='center'><td> 24  </td><td>  x   </td><td>  5   </td><td>  x   </td><td>  5   </td></tr>
+    <tr align='center'><td> 25  </td><td>&nbsp;</td><td>  6   </td><td>&nbsp;</td><td>  6   </td></tr>
+    </table>
+
+- fr: |
+    En fait, les deux règles n'engendrent une différence que pour
+    les années IV, VIII, XII et XVI. Donc le sous-programme effectue
+    le calcul avec la règle arithmétique dès l'an I, puis rectifie le résultat
+    si l'on a l'une de ces quatre années. N'oubliez pas que le sous-programme
+    commence par soustraire 1 à l'année, c'est pour cela qu'il teste
+    les valeurs 3, 7, 11 et 15.
+- en: |
+    Actually, the two rules differ only for years IV, VIII, XII
+    and XVI. So the subroutine applies the arithmetical rule
+    starting from year I
+    and then checks the year, tweaking the result is the year
+    is one of the four exceptions. Remember that the subroutine begins
+    with subtracting 1 from the year, therefore the values to 
+    check are 3, 7, 11 and 15.
+
 - code: |
     lbl 20
     1
