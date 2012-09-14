@@ -1,23 +1,25 @@
 fr: Calendrier républicain pour HP-41, tests
 en: French Revolutionary Calendar for HP-41, tests
-testcf1: code41
+testcf1.txt: code41
+testcf2.txt: code41
+testcf3.txt: code41
 ---
 - section: 0
   'fr,en': Introduction
 - fr: |
-    Ce programme pour HP-41CX contient une suite de  tests pour <tt>CALFR</tt>.
+    Ces programmes pour HP-41CX contiennent une suite de  tests pour <tt>CALFR</tt>.
 - en: |
-    This program for HP-41CX gives a test suite for <tt>CALFR</tt>.
+    These programs for HP-41CX give a test suite for <tt>CALFR</tt>.
 - section: 0
   fr: Mode d'emploi
   en: Instructions for Use
 - fr: |
     Positionnez votre calculatrice en mode <tt>DMY</tt>.
-    Lancez le programme. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
+    Lancez l'un des trois programmes. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
     c'est qu'il y a une erreur. La date grégorienne utilisée se trouve dans le
     registre X et la date républicaine attendue dans le registre alpha.
 - en: |
-    Set-up you computer in <tt>DMY</tt> mode. Run the program.
+    Set-up you computer in <tt>DMY</tt> mode. Run one of the three programs.
     If it stops with a <tt>TONE&nbsp;0</tt>, there has been an
     error. The Gregorian date is in register X, the expected 
     French Revolutionary date is in register alpha.
@@ -28,21 +30,21 @@ testcf1: code41
   en: Prerequisite
   level: 3
 - fr: |
-    Ce programme nécessite une HP-41CX ou, peut-être, une
+    Ces programmes nécessitent une HP-41CX ou, peut-être, une
     HP-41 avec un module <i lang='en'>Time</i> et un module
     <i lang='en'>Extended Functions</i>. Il faut avoir installé
     <tt>CALFR</tt>.
 
-    Le programme utilise les mémoires 10 à 12, sachant que de son côté
+    Les programmes utilisent les mémoires 10 à 12, sachant que de son côté
     <tt>CALFR</tt> utilise les mémoires 00 à 06.
 
     Il n'y a pas d'instruction de programmation synthétique.
 - en: |
-    This program requires a HP-41CX or, maybe, a lower HP-41
+    These programs require a HP-41CX or, maybe, a lower HP-41
     with a Time and an Extended Functions modules. You must
     have <tt>CALFR</tt> installed on your HP-41.
 
-    The program uses the memory registers 10 to 12, while
+    The programs use the memory registers 10 to 12, while
     <tt>CALFR</tt> uses memory registers 00 to 06.
 
     There is no synthetic programming in this program.
@@ -50,7 +52,7 @@ testcf1: code41
   fr: HP-41 réelle
   en: Real HP-41
 - fr: |
-    La seule façon de rentrer ce programme consiste à le taper.
+    La seule façon de rentrer ces programmes consiste à les taper.
     Mais le jeu en vaut-il la chandelle&nbsp;?
 
     Toutefois, si vous avez une unité de disque  fonctionnant
@@ -61,10 +63,10 @@ testcf1: code41
     ou à la <a href="http://www.hpmuseum.org/software/41uc.htm#dlt">technique du lien direct</a>
     dans la documentation de l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>.
 - en: |
-    The only way to enter this program into a real-world HP-41
-    is by typing it. But is it worth it?
+    The only way to enter these programs into a real-world HP-41
+    is by typing them. But is it worth it?
 
-    Although, if you have a disque drive that
+    Although, if you have a disk drive that
     can be used with HP-IL or a barcode reader, you can have a
     look at the
     <a href="http://www.hpmuseum.org/software/41uc.htm#wand">barcode generator</a>,
@@ -76,11 +78,28 @@ testcf1: code41
 - fr: |
     Pour l'émulateur v41, utilisez
     l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
-    pour convertir le fichier texte en fichier <i lang='en'>raw</i>.
+    pour convertir les fichiers textes en fichiers <i lang='en'>raw</i>.
+    Il suffit de taper&nbsp;:
+    <pre>
+    hp41uc /t=testcf1.txt /r=testcf1.raw /n
+    </pre>
+
+    Et de même pour les autres fichiers. À noter que cela fonctionne
+    sous le shell de Cygwin, en utilisant des slashs pour les paramètres.
 - en: |
     For the v41 emulator, use the
     <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
-    tool to convert the text file into raw format.
+    tool to convert the text files into raw format.
+    Just type:
+
+- en: |
+
+    <pre>
+    hp41uc /t=testcf1.txt /r=testcf1.raw /n
+    </pre>
+
+    And so on with the other files. And it works even with the
+    Unix-like shell from Cygwin, using slashes for the parameters.
 - section: 0
   'fr,en': nonpareil
 - fr: |
@@ -90,7 +109,7 @@ testcf1: code41
     nouvelle version de cette distribution.
 - en: |
     For the "nonpareil" simulator, the only way that I know to
-    enter this program consists in typing it from the beginning
+    enter these programs consists in typing them from the beginning
     to the end. If I learn of another way, I will let you know
     in a new version.
 - section: 0
@@ -134,61 +153,204 @@ testcf1: code41
     prompt
     rtn
 - section: testcf1
-  testcf1: 1
+  testcf1.txt: 1
 - code: |
     lbl "TESTCF1"
     lbl 00
+    cf 00
     22.091792
-                 "1 VND 1"
-                             XEQ 01
+                  "1 VND 1"
+                              xeq 01
     23.101793
-                 "2 BRU 2"
-                             XEQ 01
+                  "2 BRU 2"
+                              xeq 01
     27.071794
-                 "9 THE 2"
-                             XEQ 01
+                  "9 THE 2"
+                              xeq 01
     23.111794
-                 "3 FRI 3"
-                             XEQ 01
+                  "3 FRI 3"
+                              xeq 01
     05.101795
-                 "13 VND 4"
-                             XEQ 01
+                  "13 VND 4"
+                              xeq 01
     25.121795
-                 "4 NIV 4"
-                             XEQ 01
+                  "4 NIV 4"
+                              xeq 01
     24.011797
-                 "5 PLU 5"
-                             XEQ 01
+                  "5 PLU 5"
+                              xeq 01
     24.021798
-                 "6 VNT 6"
-                             XEQ 01
+                  "6 VNT 6"
+                              xeq 01
     09.111799
-                 "18 BRU 8"
-                             XEQ 01
+                  "18 BRU 8"
+                              xeq 01
     29.031801
-                 "8 GER 9"
-                             XEQ 01
+                  "8 GER 9"
+                              xeq 01
     30.041804
-                 "10 FLO 12"
-                             XEQ 01
+                  "10 FLO 12"
+                              xeq 01
     01.061807
-                 "12 PRA 15"
-                             XEQ 01
+                  "12 PRA 15"
+                              xeq 01
     03.071810
-                 "14 MES 18"
-                             XEQ 01
+                  "14 MES 18"
+                              xeq 01
     04.081813
-                 "16 THE 21"
-                             XEQ 01
+                  "16 THE 21"
+                              xeq 01
     04.091816
-                 "18 FRU 24"
-                             XEQ 01
+                  "18 FRU 24"
+                              xeq 01
     01.012000
-                 "12 NIV 208"
-                             XEQ 01
+                  "12 NIV 208"
+                              xeq 01
     11.052001
-                 "22 FLO 209"
-                             XEQ 01
+                  "22 FLO 209"
+                              xeq 01
+    22.091792
+                  "1 VND 1"
+                              xeq 01
+    21.091793
+                  "5 S-C 1"
+                              xeq 01
+    22.091793
+                  "1 VND 2"
+                              xeq 01
+    stop
+    gto 00
+    rtn
+    |check|
+    end
+- section: testcf2
+  testcf2.txt: 1
+- code: |
+    lbl "TESTCF2"
+    lbl 00
+    cf 00
+    21.091794
+                  "5 S-C 2"
+                              xeq 01
+    22.091794
+                  "1 VND 3"
+                              xeq 01
+    22.091795
+                  "6 S-C 3"
+                              xeq 01
+    23.091795
+                  "1 VND 4"
+                              xeq 01
+    21.091796
+                  "5 S-C 4"
+                              xeq 01
+    22.091796
+                  "1 VND 5"
+                              xeq 01
+    21.091797
+                  "5 S-C 5"
+                              xeq 01
+    22.091797
+                  "1 VND 6"
+                              xeq 01
+    22.091799
+                  "6 S-C 7"
+                              xeq 01
+    23.091799
+                  "1 VND 8"
+                              xeq 01
+    22.091800
+                  "5 S-C 8"
+                              xeq 01
+    23.091800
+                  "1 VND 9"
+                              xeq 01
+    22.091801
+                  "5 S-C 9"
+                              xeq 01
+    23.091801
+                  "1 VND 10"
+                              xeq 01
+    22.091823
+                  "5 S-C 31"
+                              xeq 01
+    23.091823
+                  "1 VND 32"
+                              xeq 01
+    22.091824
+                  "6 S-C 32"
+                              xeq 01
+    23.091824
+                  "1 VND 33"
+                              xeq 01
+    22.091825
+                  "5 S-C 33"
+                              xeq 01
+    23.091825
+                  "1 VND 34"
+                              xeq 01
+    stop
+    gto 00
+    rtn
+    |check|
+    end
+- section: testcf3
+  testcf3.txt: 1
+- code: |
+    lbl "TESTCF3"
+    lbl 00
+    cf 00
+    21.091892
+                  "5 S-C 100"
+                              xeq 01
+    22.091892
+                  "1 VND 101"
+                              xeq 01
+    22.091900
+                  "6 S-C 108"
+                              xeq 01
+    23.091900
+                  "1 VND 109"
+                              xeq 01
+    21.091992
+                  "5 S-C 200"
+                              xeq 01
+    22.091992
+                  "1 VND 201"
+                              xeq 01
+    21.092000
+                  "6 S-C 208"
+                              xeq 01
+    22.092000
+                  "1 VND 209"
+                              xeq 01
+    20.092092
+                  "5 S-C 300"
+                              xeq 01
+    21.092092
+                  "1 VND 301"
+                              xeq 01
+    21.092100
+                  "6 S-C 308"
+                              xeq 01
+    22.092100
+                  "1 VND 309"
+                              xeq 01
+    21.092192
+                  "6 S-C 400"
+                              xeq 01
+    22.092192
+                  "1 VND 401"
+                              xeq 01
+    21.092193
+                  "5 S-C 401"
+                              xeq 01
+    22.092199
+                  "1 VND 408"
+                              xeq 01
+    22.092200
+                  "6 S-C 408"
+                              xeq 01
     stop
     gto 00
     rtn
