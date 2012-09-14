@@ -39,6 +39,9 @@ testcf3.txt: code41
     <tt>CALFR</tt> utilise les mémoires 00 à 06.
 
     Il n'y a pas d'instruction de programmation synthétique.
+
+    Pour des raisons de capacité de mémoire, les tests se présentent
+    sous la forme de trois programmes au lieu d'un seul.
 - en: |
     These programs require a HP-41CX or, maybe, a lower HP-41
     with a Time and an Extended Functions modules. You must
@@ -48,6 +51,9 @@ testcf3.txt: code41
     <tt>CALFR</tt> uses memory registers 00 to 06.
 
     There is no synthetic programming in this program.
+
+    Because of memory capacity reasons, the test suite is split
+    into three programs instead of just one.
 - section: 0
   fr: HP-41 réelle
   en: Real HP-41
@@ -113,8 +119,8 @@ testcf3.txt: code41
     to the end. If I learn of another way, I will let you know
     in a new version.
 - section: 0
-  fr: Le programme
-  en: The program
+  fr: Les programmes
+  en: The programs
 - section: check
 - fr: |
     Ce sous-programme reçoit une date grégorienne dans le registre
@@ -150,10 +156,24 @@ testcf3.txt: code41
     arcl 12
     rcl 10
     tone 0
+    sf 00
     prompt
     rtn
 - section: testcf1
   testcf1.txt: 1
+- fr: |
+    La disposition des lignes est en «&nbsp;échelon refusé&nbsp;»
+    pour tenir compte de deux contraintes. La première est que,
+    tel que je l'ai conçu, le programme de génération n'accepte
+    qu'une seule instruction HP-41 par ligne de source (pour
+    numéroter les lignes). D'autre part, dans du code répétitif,
+    j'aime bien aligner verticalement les éléments semblables.
+- en: |
+    The code is "arrayed in an echelon formation" to apply two
+    constraints. First, the generation program, when dealing with
+    HP-41 code, accepts only one instruction per line, so the output
+    can be line-numbered. Second, when I write repetitive code, I like
+    to vertically align similar elements.
 - code: |
     lbl "TESTCF1"
     lbl 00
