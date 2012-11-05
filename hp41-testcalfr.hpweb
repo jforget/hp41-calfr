@@ -3,6 +3,7 @@ en: French Revolutionary Calendar for HP-41, tests
 testcf1.txt: code41
 testcf2.txt: code41
 testcf3.txt: code41
+testcf4.txt: code41
 ---
 - section: 0
   'fr,en': Introduction
@@ -370,6 +371,77 @@ testcf3.txt: code41
                               xeq 01
     22.092200
                   "6 S-C 408"
+                              xeq 01
+    23.092791
+                  "1 VND 1000"
+                              xeq 01
+    22.092792
+                  "1 VND 1001"
+                              xeq 01
+    01.013000
+                  "12 NIV 1208"
+                              xeq 01
+    stop
+    gto 00
+    rtn
+    |check|
+    end
+- section: testcf4
+  testcf4.txt: 1
+- code: |
+    lbl "TESTCF4"
+    lbl 00
+    cf 00
+    01.013001
+                  "11 NIV 1209"
+                              xeq 01
+    22.093791
+                  "1 VND 2000"
+                              xeq 01
+    22.093792
+                  "1 VND 2001"
+                              xeq 01
+    01.014000
+                  "12 NIV 2208"
+                              xeq 01
+    01.014001
+                  "12 NIV 2209"
+                              xeq 01
+    23.094791
+                  "1 VND 3000"
+                              xeq 01
+    22.094792
+                  "1 VND 3001"
+                              xeq 01
+    01.015000
+                  "12 NIV 3208"
+                              xeq 01
+    01.015001
+                  "11 NIV 3209"
+                              xeq 01
+    22.095791
+                  "1 VND 4000"
+                              xeq 01
+    21.095792
+                  "1 VND 4001"
+                              xeq 01
+    01.016000
+                  "13 NIV 4208"
+                              xeq 01
+    01.016001
+                  "13 NIV 4209"
+                              xeq 01
+    22.096791
+                  "1 VND 5000"
+                              xeq 01
+    22.096792
+                  "2 VND 5001"
+                              xeq 01
+    21.097791
+                  "1 VND 6000"
+                              xeq 01
+    21.097792
+                  "1 VND 6001"
                               xeq 01
     stop
     gto 00
