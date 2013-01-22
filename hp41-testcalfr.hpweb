@@ -16,14 +16,23 @@ testcf4.txt: code41
   en: Instructions for Use
 - fr: |
     Positionnez votre calculatrice en mode <tt>DMY</tt>.
-    Lancez l'un des trois programmes. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
+    Lancez l'un des quatre programmes. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
     c'est qu'il y a une erreur. La date grégorienne utilisée se trouve dans le
     registre X et la date républicaine attendue dans le registre alpha.
+
+    Vous pouvez reprendre la suite des tests en appuyant sur <tt>R/S</tt>. À la fin,
+    le programme s'arrête en affichant selon le cas <tt>SUCCES</tt> ou <tt>ECHEC</tt>.
+    L'indicateur binaire 0 permet également de signaler un échec.
 - en: |
-    Set-up you computer in <tt>DMY</tt> mode. Run one of the three programs.
+    Set-up you computer in <tt>DMY</tt> mode. Run one of the four programs.
     If it stops with a <tt>TONE&nbsp;0</tt>, there has been an
     error. The Gregorian date is in register X, the expected 
     French Revolutionary date is in register alpha.
+
+    If the program has stopped, you can press <tt>R/S</tt> to continue
+    with the following tests. At the end, the program displays 
+    <tt>SUCCES</tt> for success, of <tt>ECHEC</tt> for failure. 
+    The binary indicator 0 is another way to signal failure.
 - section: 0
   'fr,en': Installation
 - section: 0
@@ -42,7 +51,7 @@ testcf4.txt: code41
     Il n'y a pas d'instruction de programmation synthétique.
 
     Pour des raisons de capacité de mémoire, les tests se présentent
-    sous la forme de trois programmes au lieu d'un seul.
+    sous la forme de plusieurs programmes au lieu d'un seul.
 - en: |
     These programs require a HP-41CX or, maybe, a lower HP-41
     with a Time and an Extended Functions modules. You must
@@ -54,7 +63,7 @@ testcf4.txt: code41
     There is no synthetic programming in this program.
 
     Because of memory capacity reasons, the test suite is split
-    into three programs instead of just one.
+    into several programs instead of just one.
 - section: 0
   fr: HP-41 réelle
   en: Real HP-41
@@ -62,7 +71,7 @@ testcf4.txt: code41
     La seule façon de rentrer ces programmes consiste à les taper.
     Mais le jeu en vaut-il la chandelle&nbsp;?
 
-    Toutefois, si vous avez une unité de disque  fonctionnant
+    Toutefois, si vous avez une unité de disque fonctionnant
     sous HP-IL ou un lecteur de codes-barres, vous pouvez jeter
     un coup d'œil au
     <a href="http://www.hpmuseum.org/software/41uc.htm#wand">générateur de codes-barres</a>,
@@ -93,6 +102,7 @@ testcf4.txt: code41
 
     Et de même pour les autres fichiers. À noter que cela fonctionne
     sous le shell de Cygwin, en utilisant des slashs pour les paramètres.
+    Ensuite, chargez le programme dans v41 avec&nbsp;:
 - en: |
     For the v41 emulator, use the
     <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
@@ -107,6 +117,13 @@ testcf4.txt: code41
 
     And so on with the other files. And it works even with the
     Unix-like shell from Cygwin, using slashes for the parameters.
+    And then, load the program into the v41 emulator with
+- 
+  'fr,en': |
+    <pre>
+    GTO ..
+    File -&gt; Get User Code...
+    </pre>
 - section: 0
   'fr,en': nonpareil
 - fr: |
@@ -160,6 +177,18 @@ testcf4.txt: code41
     sf 00
     prompt
     rtn
+- section: end
+  fr: La fin des programmes
+  en: The end of the programs
+- code: |
+    "REUSSI"
+    fs?c 00
+    "ECHEC"
+    prompt
+    gto 00
+    rtn
+    |check|
+    end
 - section: testcf1
   testcf1.txt: 1
 - fr: |
@@ -239,11 +268,7 @@ testcf4.txt: code41
     22.091793
                   "1 VND 2"
                               xeq 01
-    stop
-    gto 00
-    rtn
-    |check|
-    end
+    |end|
 - section: testcf2
   testcf2.txt: 1
 - code: |
@@ -310,11 +335,7 @@ testcf4.txt: code41
     23.091825
                   "1 VND 34"
                               xeq 01
-    stop
-    gto 00
-    rtn
-    |check|
-    end
+    |end|
 - section: testcf3
   testcf3.txt: 1
 - code: |
@@ -381,11 +402,7 @@ testcf4.txt: code41
     01.013000
                   "12 NIV 1208"
                               xeq 01
-    stop
-    gto 00
-    rtn
-    |check|
-    end
+    |end|
 - section: testcf4
   testcf4.txt: 1
 - code: |
@@ -407,47 +424,10 @@ testcf4.txt: code41
     01.014001
                   "12 NIV 2209"
                               xeq 01
-    23.094791
-                  "1 VND 3000"
+    10.094320
+                  "24 FRU 2528"
                               xeq 01
-    22.094792
-                  "1 VND 3001"
-                              xeq 01
-    01.015000
-                  "12 NIV 3208"
-                              xeq 01
-    01.015001
-                  "11 NIV 3209"
-                              xeq 01
-    22.095791
-                  "1 VND 4000"
-                              xeq 01
-    21.095792
-                  "1 VND 4001"
-                              xeq 01
-    01.016000
-                  "13 NIV 4208"
-                              xeq 01
-    01.016001
-                  "13 NIV 4209"
-                              xeq 01
-    22.096791
-                  "1 VND 5000"
-                              xeq 01
-    22.096792
-                  "2 VND 5001"
-                              xeq 01
-    21.097791
-                  "1 VND 6000"
-                              xeq 01
-    21.097792
-                  "1 VND 6001"
-                              xeq 01
-    stop
-    gto 00
-    rtn
-    |check|
-    end
+    |end|
 - section: 0
   fr: Licence
   en: License
