@@ -123,10 +123,14 @@ calfr: code41
     For the v41 emulator, use the
     <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
     tool to convert the text file into raw format. Just type:
-- fr,en: |
+
+- 
+  'fr,en': |
+
     <pre>
     hp41uc /t=testcf1.txt /r=testcf1.raw /n
     </pre>
+
 - fr: |
     À noter que cela fonctionne sous le shell de Cygwin, en utilisant des
     slashs pour les paramètres, même si vous êtes habitués à des tirets.
