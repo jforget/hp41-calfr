@@ -84,13 +84,13 @@ calfr: code41
     à l'extérieur des guillemets est censé représenter le 
     symbole «&nbsp;<tt>|-</tt>&nbsp;» qui se serait trouvé à l'intérieur
     des guillemets. C'est l'une des notations utilisées
-    par <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
+    par <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>hp41uc</tt></a>.
 - en: |
     The "append" string (symbol "<tt>|-</tt>") is represented by
     the notation <tt>&gt;"string"</tt>. The "greater than" sign
     outside the quotes is meant to evoke the "<tt>|-</tt>" symbol
     inside the string. This is one of the notations used by
-    <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
+    <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>hp41uc</tt></a>.
 - section: 0
   fr: HP-41 réelle
   en: Real HP-41
@@ -118,10 +118,23 @@ calfr: code41
     Pour l'émulateur v41, utilisez
     l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
     pour convertir le fichier texte en fichier <i lang='en'>raw</i>.
+    Il suffit de taper&nbsp;:
 - en: |
     For the v41 emulator, use the
     <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
-    tool to convert the text file into raw format.
+    tool to convert the text file into raw format. Just type:
+- fr,en: |
+    <pre>
+    hp41uc /t=testcf1.txt /r=testcf1.raw /n
+    </pre>
+- fr: |
+    À noter que cela fonctionne sous le shell de Cygwin, en utilisant des
+    slashs pour les paramètres, même si vous êtes habitués à des tirets.
+    Ensuite, chargez le programme dans v41 avec File -&gt; Get User Code...
+- en: |
+    And it works even with the Unix-like shell from Cygwin,
+    using slashes for the parameters, even if you are used to type dashes.
+    And then, load the program into the v41 emulator with File -&gt; Get User Code...
 - section: 0
   'fr,en': nonpareil
 - fr: |
