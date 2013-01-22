@@ -29,6 +29,12 @@ calfr: code41
     Le résultat se trouve dans le registre alpha, au format 
     <tt>JJ MOIS AAAA</tt>, où <tt>MOIS</tt> est l'abréviation en trois lettres
     du mois.
+
+    Par exemple, vous entrez <tt>9.111799</tt> (9 novembre 1799) et la HP-41
+    vous affiche <tt>18 BRU 8</tt> (18 Brumaire VIII).
+
+    La date doit être comprise entre le 22 septembre 1792 (début du calendrier
+    républicain) et le 10 septembre 4320 (date limite imposée par la HP-41CX).
 - en: |
     Enter the date in <tt>dd.mmyyyy</tt> format into the X register,
     go to the beginning of the program (<tt>RTN</tt>) then 
@@ -37,6 +43,13 @@ calfr: code41
 
     The result is in the alpha register, in <tt>DD MON YYYY</tt>
     format, with <tt>MON</tt> a 3-letter abbreviation of the month.
+
+    For example, if you enter <tt>9.111799</tt> (9th November 1799), the HP-41
+    will display <tt>18 BRU 8</tt> (18 Brumaire VIII).
+
+    The input date must be in the interval from 22nd September 1792 (first day
+    of the French Revolutionary calendar) to 10th September 4320 (highest day
+    allowed by the HP-41CX).
 - section: 0
   'fr,en': Installation
 - section: 0
@@ -47,7 +60,7 @@ calfr: code41
     Ce programme nécessite une HP-41CX ou, peut-être, une
     HP-41 avec un module <i lang='en'>Time</i> et un module
     <i lang='en'>Extended Functions</i>. Le programme
-    utilise les fonctions <tt>ddays</tt>, <tt>dmy</tt>
+    utilise les fonctions <tt>ddays</tt>, <tt>dmy</tt>,
     <tt>rclflags</tt> and <tt>stoflags</tt>.
 
     Le programme utilise les mémoires 00 à 06.
@@ -76,7 +89,7 @@ calfr: code41
     The "append" string (symbol "<tt>|-</tt>") is represented by
     the notation <tt>&gt;"string"</tt>. The "greater than" sign
     outside the quotes is meant to evoke the "<tt>|-</tt>" symbol
-    inside the string. This one of the notation used by
+    inside the string. This is one of the notations used by
     <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>uc41</tt></a>.
 - section: 0
   fr: HP-41 réelle
@@ -220,7 +233,7 @@ calfr: code41
     blancs intermédiaires.
 
     Certes, faire passer le mois par le registre Y
-    nécessite l'utiisation de plusieurs pas de programme,
+    nécessite l'utilisation de plusieurs pas de programme,
     donc de plusieurs octets, mais cela permet dans les
     labels 01 à 13 de saisir l'abréviation du mois sur 
     3 caractères, sans le caractère «&nbsp;append&nbsp;»,
