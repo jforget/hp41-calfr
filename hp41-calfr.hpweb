@@ -21,7 +21,8 @@ calfr: code41
   fr: Mode d'emploi
   en: Instructions for Use
 - fr: |
-    Entrez la date au format <tt>jj.mmaaaa</tt> dans le registre X,
+    Entrez la date au format <tt>jj.mmaaaa</tt> ou <tt>mm.jjaaaa</tt> 
+    (selon le paramétrage de la HP-41) dans le registre X,
     positionnez-vous au début du programme (<tt>RTN</tt>) puis 
     lancez-le (<tt>R/S</tt>). Ou bien lancez-le par 
     <tt>XEQ alpha CALFR alpha</tt>.
@@ -36,7 +37,8 @@ calfr: code41
     La date doit être comprise entre le 22 septembre 1792 (début du calendrier
     républicain) et le 10 septembre 4320 (date limite imposée par la HP-41CX).
 - en: |
-    Enter the date in <tt>dd.mmyyyy</tt> format into the X register,
+    Enter the date in <tt>dd.mmyyyy</tt> or <tt>mm.ddyyyy</tt> format into the X register
+    (use the format currently defined in the HP-41),
     go to the beginning of the program (<tt>RTN</tt>) then 
     run it (<tt>R/S</tt>). You can run the program with
     <tt>XEQ alpha CALFR alpha</tt>.
@@ -60,7 +62,7 @@ calfr: code41
     Ce programme nécessite une HP-41CX ou, peut-être, une
     HP-41 avec un module <i lang='en'>Time</i> et un module
     <i lang='en'>Extended Functions</i>. Le programme
-    utilise les fonctions <tt>ddays</tt>, <tt>dmy</tt>,
+    utilise les fonctions <tt>ddays</tt>,
     <tt>rclflags</tt> and <tt>stoflags</tt>.
 
     Le programme utilise les mémoires 00 à 06.
@@ -69,7 +71,7 @@ calfr: code41
 - en: |
     This program requires a HP-41CX or, maybe, a lower HP-41
     with a Time and an Extended Functions modules. The program uses the <tt>ddays</tt>,
-    <tt>dmy</tt>, <tt>rclflags</tt> and <tt>stoflags</tt> functions.
+    <tt>rclflags</tt> and <tt>stoflags</tt> functions.
 
     The program uses the memory registers 00 to 06.
 
@@ -128,7 +130,7 @@ calfr: code41
   'fr,en': |
 
     <pre>
-    hp41uc /t=testcf1.txt /r=testcf1.raw /n
+    hp41uc /t=calfr.txt /r=calfr.raw /n
     </pre>
 
 - fr: |
@@ -215,6 +217,12 @@ calfr: code41
     jours à partir du 1<sup>er</sup> vendémiaire de l'an I, soit le 
     22 septembre 1792. Ce jour porte le numéro FRRD 0 pour des raisons
     de commodité de programmation.
+
+    Au sujet du calcul&nbsp;: au lieu de calculer le nombre de jours entre
+    la date donnée et le 22 septembre 1792, on calcule le nombre de jours
+    entre la date et le 9 septembre 1792, puis on retire les 13 jours excédentaires.
+    Pourquoi&nbsp;? Parce qu'ainsi, le programme sert aussi bien en mode 
+    <tt>DMY</tt> qu'en mode <tt>MDY</tt>, sans avoir besoin de tester le drapeau 31.
 - en: |
     Usually, the programs converting from a calendar to another use
     some intermediary calendar which ignores years, months and weeks
@@ -227,11 +235,18 @@ calfr: code41
     which counts the days since the epoch of the French Revolutionary Calendar,
     1 Vendémiaire I or 22 September 1792.
     This day has number 0 in this system, so the program will be simpler.
+
+    About the way the number of days is computed: the program computes
+    the number of days between the given date and September 9th, 1792,
+    then shifts the result by 13 days. Why? Because when doing so, the
+    program does not check flag 31 and so does not bother whether
+    the current mode is <tt>DMY</tt> or <tt>MDY</tt>.
 - code: |
-    22,091792
-    dmy
+    9,091792
     x<>y
     ddays
+    13
+    -
     sto 00
 - section: display
   fr: affichage de la date
