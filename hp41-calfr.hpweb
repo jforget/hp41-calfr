@@ -406,39 +406,39 @@ calfr: code41
     4
     /
     int
-    sto 06
     rcl 05
     100
     /
     int
-    st- 06
+    -
     rcl 05
     400
     /
     int
-    st+ 06
+    +
+    sto 06
     rcl 05
     15
     x<y?
     gto 22
     x=y?
-    gto 21
+    gto 14
     rdn
     11
     x=y?
-    gto 21
+    gto 14
     rdn
     7
     x=y?
-    gto 21
+    gto 14
     rdn
     3
     x=y?
-    gto 21
+    gto 14
     lbl 22
     rcl 06
     rtn
-    lbl 21
+    lbl 14
     rcl 06
     1
     +
