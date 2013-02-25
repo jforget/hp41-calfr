@@ -1,28 +1,31 @@
 fr: Calendrier républicain pour HP-41
 en: French Revolutionary Calendar for HP-41
-calfr: code41
+calfr-cx: code41
+calfr-cv-dmy: code41
+calfr-cv-mdy: code41
 ---
 - section: 0
   'fr,en': Introduction
 - fr: |
-    Ce programme pour HP-41CX permet de convertir une date du calendrier
+    Ce programme pour HP-41CV ou HP-41CX permet de convertir une date du calendrier
     grégorien vers le calendrier républicain. Il n'est pas
     limité à la période réelle d'utilisation du calendrier 
     républicain, vous pouvez demander la conversion de toute
     date des XIX<sup>e</sup>, XX<sup>e</sup> et XXI<sup>e</sup>
     siècles.
 - en: |
-    This program for HP-41CX allows you to convert dates
+    This program for HP-41CV or HP-41CX allows you to convert dates
     from the Gregorian calendar to the French Revolutionary
     Calendar. It is not limited to the historical use period
     of the French Revolutionary calendar, you can convert
-    later dates, in the whole XIXth, XXth and XXIth centuries.
+    later dates, in the whole XIXth, XXth and XXIst centuries.
 - section: 0
   fr: Mode d'emploi
   en: Instructions for Use
 - fr: |
     Entrez la date au format <tt>jj.mmaaaa</tt> ou <tt>mm.jjaaaa</tt> 
-    (selon le paramétrage de la HP-41) dans le registre X,
+    (selon la variante choisie du programme pour HP-41CV ou selon
+    le paramétrage de la calculatrice HP-41CX) dans le registre X,
     positionnez-vous au début du programme (<tt>RTN</tt>) puis 
     lancez-le (<tt>R/S</tt>). Ou bien lancez-le par 
     <tt>XEQ alpha CALFR alpha</tt>.
@@ -38,7 +41,9 @@ calfr: code41
     républicain) et le 10 septembre 4320 (date limite imposée par la HP-41CX).
 - en: |
     Enter the date in <tt>dd.mmyyyy</tt> or <tt>mm.ddyyyy</tt> format into the X register
-    (use the format currently defined in the HP-41),
+    (on the HP-41CV, use the format corresponding to the program variant you chose;
+    on the HP-41CX, used the format currently defined by 
+    the last <tt>DMY</tt> or <tt>MDY</tt> operation),
     go to the beginning of the program (<tt>RTN</tt>) then 
     run it (<tt>R/S</tt>). You can run the program with
     <tt>XEQ alpha CALFR alpha</tt>.
@@ -59,23 +64,64 @@ calfr: code41
   en: Prerequisite
   level: 3
 - fr: |
-    Ce programme nécessite une HP-41CX ou, peut-être, une
-    HP-41 avec un module <i lang='en'>Time</i> et un module
-    <i lang='en'>Extended Functions</i>. Le programme
-    utilise les fonctions <tt>ddays</tt>,
-    <tt>rclflags</tt> and <tt>stoflags</tt>.
+    Ce programme nécessite une HP-41CV ou une HP-41CX. 
 
     Le programme utilise les mémoires 00 à 06.
 
-    Il n'y a pas d'instruction de programmation synthétique.
+    Il n'y a pas d'instruction de programmation synthétique dans
+    la version CX, mais il y a un <tt>rcl&nbsp;d</tt> et un <tt>sto&nbsp;d</tt> dans les 
+    versions CV, pour compenser l'absence de <tt>rclflag</tt>
+    et <tt>stoflag</tt>
 - en: |
-    This program requires a HP-41CX or, maybe, a lower HP-41
-    with a Time and an Extended Functions modules. The program uses the <tt>ddays</tt>,
-    <tt>rclflags</tt> and <tt>stoflags</tt> functions.
+    This program requires a HP-41CV or HP-41CX.
 
     The program uses the memory registers 00 to 06.
 
-    There is no synthetic programming in this program.
+    There is no synthetic programming in the CX version, but the
+    CV versions include a <tt>rcl&nbsp;d</tt> and a <tt>sto&nbsp;d</tt>
+    to replace the missing <tt>rclflag</tt> and <tt>stoflag</tt> instructions.
+- section: 0
+  fr: Choix du fichier
+  en: File Selection
+  level: 3
+- fr: |
+    Si vous disposez d'une HP-41CX et si vous ne vous intéressez
+    pas aux dates postérieures au 10 septembre 4320, alors
+    utilisez le fichier <tt>calfr-cx</tt>. Le programme de ce 
+    fichier utilise la fonction <tt>DDAYS</tt> du module TIME
+    inclus dans la HP-41CX.
+
+    Si vous possédez une HP-41CV sans module TIME, ou bien
+    si vous tenez absolument à convertir des dates postérieures
+    au 10 septembre 4320, alors utilisez l'un des fichiers
+    <tt>calfr-cv-dmy</tt> ou <tt>calfr-cv-mdy</tt>.
+    Ce fichier contient un programme <tt>DDAYS</tt> destiné
+    à pallier l'absence de la fonction homonyme dans la HP-41CV.
+    Hélas, ce programme ne sait traiter qu'un seul format de date.
+    Choisissez <tt>calfr-cv-dmy</tt> si vous préférez saisir
+    les dates au format <tt>JJ,MMAAAA</tt> et choisissez
+    <tt>calfr-cv-mdy</tt> si vous préférez le format <tt>MM,JJAAAA</tt>.
+
+    En revanche, le programme du fichier <tt>calfr-cx</tt> sait
+    traiter les deux formats, sans problème.
+- en: |
+    If you have a HP-41CX and if you do not care about dates after
+    10 september 4320, use the program from the <tt>calfr-cx</tt>
+    file. This program uses the <tt>DDAYS</tt> function from the
+    TIME module embedded in the HP-41CX.
+
+    If you have a HP-41CV without a TIME module, or if
+    you really care about dates after 10 september 4320, then
+    use either the <tt>calfr-cv-dmy</tt> file or the <tt>calfr-cv-(mdy</tt>
+    file. Choose the one corresponding to your preferred date format,
+    <tt>DD.MMYYYY</tt> or <tt>MM.DDYYYY</tt>.
+    These files contain a <tt>DDAYS</tt> program, which replaces
+    the homonymous function from the TIME module.
+    Unfortunately, this program ca deal with only one date format.
+
+    If you have a HP-41CX and if you use the <tt>calfr-cx</tt> file,
+    you need not bother about date formats. The program can deal with
+    both of them.
 - section: 0
   fr: Conventions d'écriture
   en: Conventions
@@ -107,7 +153,7 @@ calfr: code41
     dans la documentation de l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>.
 - en: |
     The only way to enter this program into a real-world HP-41
-    is by typing it. Although, if you have a disque drive that
+    is by typing it. Although, if you have a disk drive that
     can be used with HP-IL or a barcode reader, you can have a
     look at the
     <a href="http://www.hpmuseum.org/software/41uc.htm#wand">barcode generator</a>,
@@ -125,14 +171,11 @@ calfr: code41
     For the v41 emulator, use the
     <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
     tool to convert the text file into raw format. Just type:
-
 - 
   'fr,en': |
-
     <pre>
-    hp41uc /t=calfr.txt /r=calfr.raw /n
+    hp41uc /t=calfr-cx /r=calfr-cx.raw /n
     </pre>
-
 - fr: |
     À noter que cela fonctionne sous le shell de Cygwin, en utilisant des
     slashs pour les paramètres, même si vous êtes habitués à des tirets.
@@ -157,7 +200,9 @@ calfr: code41
   fr: Le programme
   en: The program
 - section: calfr1
-  calfr: 1
+  calfr-cx: 1
+  calfr-cv-dmy: 1
+  calfr-cv-mdy: 1
 - code: |
     lbl "CALFR"
     lbl 30
@@ -218,7 +263,7 @@ calfr: code41
     22 septembre 1792. Ce jour porte le numéro FRRD 0 pour des raisons
     de commodité de programmation.
 
-    Au sujet du calcul&nbsp;: au lieu de calculer le nombre de jours entre
+    Au sujet du calcul sur la HP-41CX&nbsp;: au lieu de calculer le nombre de jours entre
     la date donnée et le 22 septembre 1792, on calcule le nombre de jours
     entre la date et le 9 septembre 1792, puis on retire les 13 jours excédentaires.
     Pourquoi&nbsp;? Parce qu'ainsi, le programme sert aussi bien en mode 
@@ -236,7 +281,7 @@ calfr: code41
     1 Vendémiaire I or 22 September 1792.
     This day has number 0 in this system, so the program will be simpler.
 
-    About the way the number of days is computed: the program computes
+    About the way the number of days is computed on the HP-41CX: the program computes
     the number of days between the given date and September 9th, 1792,
     then shifts the result by 13 days. Why? Because when doing so, the
     program does not check flag 31 and so does not bother whether
@@ -248,6 +293,19 @@ calfr: code41
     13
     -
     sto 00
+  calfr-cx: 1
+- code: |
+    22,091792
+    x<>y
+    xeq "DDAYS"
+    sto 00
+  calfr-cv-dmy: 1
+- code: |
+    9,221792
+    x<>y
+    xeq "DDAYS"
+    sto 00
+  calfr-cv-mdy: 1
 - section: display
   fr: affichage de la date
   en: displaying the date
@@ -258,7 +316,7 @@ calfr: code41
     et il est converti dans le registre alpha par l'appel
     indirect des labels 01 à 13 (12 = "FRU" pour Fructidor
     et 13 pour les cinq ou six jours complémentaires,
-    "sans-culottides" abrégés en "S-C"). Ensuite, le 
+    «&nbsp;sans-culottides&nbsp;» abrégés en "S-C"). Ensuite, le 
     mois en 3 caractères est stocké dans le registre Y
     puis, dans le registre alpha, le programme affiche
     dans l'ordre le jour, le mois et l'année avec des
@@ -288,7 +346,14 @@ calfr: code41
     the "append" character, which saves 13 bytes.
 - code: |
     xeq ind 02
+- code: |
     rclflag
+  calfr-cx: 1
+- code: |
+    rcl d
+  calfr-cv-mdy: 1
+  calfr-cv-dmy: 1
+- code: |
     fix 0
     cf 29
     asto y
@@ -299,7 +364,13 @@ calfr: code41
     >" "
     arcl 01
     aview
+- code: |
     stoflag
+  calfr-cx: 1
+- code: |
+    sto d
+  calfr-cv-mdy: 1
+  calfr-cv-dmy: 1
 - section: frbis
   fr: Nombre d'années bissextiles avant l'année N
   en: Number of leap years before year N
@@ -496,6 +567,70 @@ calfr: code41
     rtn
     lbl 13
     "S-C"
+    rtn
+- section: ddays
+  fr: Calcul du nombre de bours entre deux dates
+  en: Computing the number of days between two dates
+  calfr-cv-dmy: 1
+  calfr-cv-mdy: 1
+- code: |
+    lbl "DDAYS"
+    sto 00
+    rdn
+    xeq 21
+    x<> 00
+    xeq 21
+    rcl 00
+    -
+    rtn
+    lbl 21
+    int
+- code: |
+    sto 01
+  calfr-cv-dmy: 1
+- code: |
+    sto 02
+  calfr-cv-mdy: 1
+- code: |
+    lastX
+    frc
+    1e2
+    *
+    int
+- code: |
+    sto 02
+  calfr-cv-dmy: 1
+- code: |
+    sto 01
+  calfr-cv-mdy: 1
+- code: |
+    lastX
+    frc
+    1e4
+    *
+    sto 03
+    2
+    rcl 02
+    x>y?
+    gto 22
+    1
+    st- 03
+    12
+    st+ 02
+    lbl 22
+    rcl 03
+    365.2425
+    *
+    int
+    rcl 02
+    1
+    +
+    30.6
+    *
+    int
+    +
+    rcl 01
+    +
     rtn
 - section: 0
   fr: Licence
