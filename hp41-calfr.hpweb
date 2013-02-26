@@ -363,7 +363,6 @@ calfr-cv-mdy: code41
     arcl y
     >" "
     arcl 01
-    aview
 - code: |
     stoflag
   calfr-cx: 1
@@ -371,6 +370,8 @@ calfr-cv-mdy: code41
     sto d
   calfr-cv-mdy: 1
   calfr-cv-dmy: 1
+- code: |
+    aview
 - section: frbis
   fr: Nombre d'années bissextiles avant l'année N
   en: Number of leap years before year N
