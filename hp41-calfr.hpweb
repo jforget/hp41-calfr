@@ -619,9 +619,19 @@ calfr-cv-mdy: code41
     st+ 02
     lbl 22
     rcl 03
-    365.2425
+    365.25
     *
     int
+    rcl 03
+    100
+    /
+    int
+    -
+    rcl 03
+    400
+    /
+    int
+    +
     rcl 02
     1
     +
