@@ -295,16 +295,11 @@ calfr-cv-mdy: code41
     sto 00
   calfr-cx: 1
 - code: |
-    22,091792
-    x<>y
-    xeq "DDAYS"
+    xeq 21
+    654843
+    -
     sto 00
   calfr-cv-dmy: 1
-- code: |
-    9,221792
-    x<>y
-    xeq "DDAYS"
-    sto 00
   calfr-cv-mdy: 1
 - section: display
   fr: affichage de la date
