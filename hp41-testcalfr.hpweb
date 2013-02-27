@@ -14,15 +14,32 @@ testcf5mdy.txt: code41
 - section: 0
   'fr,en': Introduction
 - fr: |
-    Ces programmes pour HP-41CX contiennent une suite de  tests pour <tt>CALFR</tt>.
+    Ces programmes pour HP-41CV et HP-41CX contiennent une suite de  tests pour <tt>CALFR</tt>.
 - en: |
-    These programs for HP-41CX give a test suite for <tt>CALFR</tt>.
+    These programs for HP-41CV and HP-41CX give a test suite for <tt>CALFR</tt>.
 - section: 0
   fr: Mode d'emploi
   en: Instructions for Use
 - fr: |
-    Positionnez votre calculatrice en mode <tt>DMY</tt>.
-    Lancez l'un des quatre programmes. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
+    Si vous avez adopté la variante HP-41CX du programme de conversion,
+    les tests à utiliser sont les fichiers <tt>testcf</tt><var>n</var><tt>dmy.txt</tt>
+    et <tt>testcf</tt><var>n</var><tt>mdy.txt</tt>, avec <var>n</var> de 1 à 4.
+    N'utilisez pas les tests avec le numéro 5.
+
+    Si vous avez adopté l'une des variantes pour HP-41CV, utilisez les cinq fichiers
+    correspondant au format <tt>DMY</tt> ou <tt>MDY</tt> que vous avez installé.
+- en: |
+    If you have installed the HP-41CX variant of the conversion program,
+    you will have to use the file <tt>testcf</tt><var>n</var><tt>dmy.txt</tt>
+    and <tt>testcf</tt><var>n</var><tt>mdy.txt</tt>, with <var>n</var> from 1 to 4.
+    Do not use the files with the number 5.
+
+    If you have installed either HP-41CV variant, use the test files with
+    the corresponding <tt>DMY</tt> or <tt>MDY</tt> format.
+- fr: |
+    Positionnez votre HP-41CX en mode <tt>DMY</tt> ou <tt>MDY</tt> selon le fichier 
+    utilisé. Ce n'est pas nécessaire pour la HP-41CV, le format étant codé "en dur".
+    Lancez le programme. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
     c'est qu'il y a une erreur. La date grégorienne utilisée se trouve dans le
     registre X et la date républicaine attendue dans le registre alpha.
 
@@ -30,7 +47,9 @@ testcf5mdy.txt: code41
     le programme s'arrête en affichant selon le cas <tt>SUCCES</tt> ou <tt>ECHEC</tt>.
     L'indicateur binaire 0 permet également de signaler un échec.
 - en: |
-    Set-up you computer in <tt>DMY</tt> mode. Run one of the four programs.
+    Set-up you HP-41CX in <tt>DMY</tt> or <tt>MDY</tt> mode, depending on which
+    test file you run. This step is not necessary on the HP-41CV, because
+    the date format is hard-coded. Run the program.
     If it stops with a <tt>TONE&nbsp;0</tt>, there has been an
     error. The Gregorian date is in register X, the expected 
     French Revolutionary date is in register alpha.
@@ -46,10 +65,8 @@ testcf5mdy.txt: code41
   en: Prerequisite
   level: 3
 - fr: |
-    Ces programmes nécessitent une HP-41CX ou, peut-être, une
-    HP-41 avec un module <i lang='en'>Time</i> et un module
-    <i lang='en'>Extended Functions</i>. Il faut avoir installé
-    <tt>CALFR</tt>.
+    Ces programmes nécessitent une HP-41CX ou une HP-41CV.
+    Il faut avoir installé <tt>CALFR</tt>.
 
     Les programmes utilisent les mémoires 10 à 12, sachant que de son côté
     <tt>CALFR</tt> utilise les mémoires 00 à 06.
@@ -59,9 +76,8 @@ testcf5mdy.txt: code41
     Pour des raisons de capacité de mémoire, les tests se présentent
     sous la forme de plusieurs programmes au lieu d'un seul.
 - en: |
-    These programs require a HP-41CX or, maybe, a lower HP-41
-    with a Time and an Extended Functions modules. You must
-    have <tt>CALFR</tt> installed on your HP-41.
+    These programs require a HP-41CX or a HP-41cv.
+    You must have <tt>CALFR</tt> installed on your HP-41.
 
     The programs use the memory registers 10 to 12, while
     <tt>CALFR</tt> uses memory registers 00 to 06.
