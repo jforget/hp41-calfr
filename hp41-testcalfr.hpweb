@@ -76,7 +76,7 @@ testcf5mdy.txt: code41
     Pour des raisons de capacité de mémoire, les tests se présentent
     sous la forme de plusieurs programmes au lieu d'un seul.
 - en: |
-    These programs require a HP-41CX or a HP-41cv.
+    These programs require a HP-41CX or a HP-41CV.
     You must have <tt>CALFR</tt> installed on your HP-41.
 
     The programs use the memory registers 10 to 12, while
@@ -119,7 +119,7 @@ testcf5mdy.txt: code41
     pour convertir les fichiers textes en fichiers <i lang='en'>raw</i>.
     Il suffit de taper&nbsp;:
     <pre>
-    hp41uc /t=testcf1.txt /r=testcf1.raw /n
+    hp41uc /t=testcf1dmy.txt /r=testcf1dmy.raw
     </pre>
 
     Et de même pour les autres fichiers. À noter que cela fonctionne
@@ -131,10 +131,8 @@ testcf5mdy.txt: code41
     tool to convert the text files into raw format.
     Just type:
 
-- en: |
-
     <pre>
-    hp41uc /t=testcf1.txt /r=testcf1.raw /n
+    hp41uc /t=testcf1dmy.txt /r=testcf1dmy.raw
     </pre>
 
     And so on with the other files. And it works even with the
@@ -204,7 +202,7 @@ testcf5mdy.txt: code41
   en: The end of the programs
 - code: |
     "REUSSI"
-    fs?c 00
+    fs? 00
     "ECHEC"
     prompt
     gto 00
