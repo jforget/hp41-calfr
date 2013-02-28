@@ -10,6 +10,7 @@ testcf2mdy.txt: code41
 testcf3mdy.txt: code41
 testcf4mdy.txt: code41
 testcf5mdy.txt: code41
+tst-cmp: code41
 ---
 - section: 0
   'fr,en': Introduction
@@ -117,27 +118,69 @@ testcf5mdy.txt: code41
     Pour l'émulateur v41, utilisez
     l'outil <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
     pour convertir les fichiers textes en fichiers <i lang='en'>raw</i>.
-    Il suffit de taper&nbsp;:
+    Vous devriez pouvoir juste taper&nbsp;:
     <pre>
     hp41uc /t=testcf1dmy.txt /r=testcf1dmy.raw
     </pre>
 
-    Et de même pour les autres fichiers. À noter que cela fonctionne
-    sous le shell de Cygwin, en utilisant des slashs pour les paramètres.
-    Ensuite, chargez le programme dans v41 avec&nbsp;:
+    Sauf que cela ne fonctionne pas pour deux raisons. D'une part,
+    hp41uc ne connaît que les noms de fichier 8.3. D'autre part, il refuse
+    les lignes comportant plusieurs instructions pour la HP-41.
+    La documentation assure que c'est possible en séparant les instructions
+    avec «&nbsp;virgule plus espace&nbsp;», mais j'ai essayé, cela ne
+    fonctionne pas. Donc, si vous disposez de Cygwin et de Perl, utilisez
+    plutôt le script suivant&nbsp;:
 - en: |
     For the v41 emulator, use the
     <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
     tool to convert the text files into raw format.
-    Just type:
+    You should have to just type:
 
     <pre>
     hp41uc /t=testcf1dmy.txt /r=testcf1dmy.raw
     </pre>
 
-    And so on with the other files. And it works even with the
-    Unix-like shell from Cygwin, using slashes for the parameters.
-    And then, load the program into the v41 emulator with
+    Except that it does not work. There are two reasons for this.
+    First, hp41uc knows only 8.3 filenames, it cannot deal with
+    longer filenames. Then, in a source file, you cannot type more
+    than one HP-41 instruction per line. The documentation explains
+    that you can write several instructions in a single line, provided
+    you separate them with "comma+space". I have tried, it does not
+    work. So, if you have Cygwin and Perl, you can use this script:
+- section: tst-cmp
+  tst-cmp: 1
+  level: 3
+- code: |
+    #!/bin/sh
+    # -*- encoding: utf-8; indent-tabs-mode: nil -*-
+    #
+    # Compiling the test files, which have names outside the 8.3 convention.
+    # Compilation des fichiers de test qui ont le défaut de ne pas avoir un nom 8.3.
+    #
+
+    for i in 1 2 3 4 5
+    do
+      for j in dmy mdy
+      do
+        perl -pe 's/xeq 01/\nxeq 01/; s/  "/\n"/;' testcf$i$j.txt > testcf.txt
+        ./hp41uc /t=testcf.txt /r=testcf.raw
+        mv TESTCF.RAW TESTCF$i$j.RAW
+      done
+    done
+- section: 0
+  level: 3
+- fr: |
+    Si vous préférez la syntaxe du shell MS-DOS, ou bien s'il vous manque
+    Cygwin ou Perl, inspirez-vous de ce script
+    pour le coder avec votre syntaxe préférée.
+
+    Ensuite, sous l'émulateur v41, il ne reste plus qu'à faire&nbsp;:
+- en: |
+    If you prefer the MS-DOS shell syntax, or if Cygwin or Perl is not
+    installed, take this script as an inspiration
+    to write your own script with your preferred syntax.
+
+    And then, switch to v41 and execute:
 - 
   'fr,en': |
     <pre>
