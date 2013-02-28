@@ -483,6 +483,11 @@ calfr-cv-mdy: code41
     /
     int
     +
+    rcl 05
+    4000
+    /
+    int
+    -
     sto 06
     rcl 05
     15
