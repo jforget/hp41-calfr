@@ -37,7 +37,7 @@ calfr-cv-mdy: code41
     Par exemple, vous entrez <tt>9.111799</tt> (9 novembre 1799) et la HP-41
     vous affiche <tt>18 BRU 8</tt> (18 Brumaire VIII).
 
-    La date doit être comprise entre le 22 septembre 1792 (début du calendrier
+    Sur la HP-41CX, la date doit être comprise entre le 22 septembre 1792 (début du calendrier
     républicain) et le 10 septembre 4320 (date limite imposée par la HP-41CX).
 - en: |
     Enter the date in <tt>dd.mmyyyy</tt> or <tt>mm.ddyyyy</tt> format into the X register
@@ -54,9 +54,19 @@ calfr-cv-mdy: code41
     For example, if you enter <tt>9.111799</tt> (9th November 1799), the HP-41
     will display <tt>18 BRU 8</tt> (18 Brumaire VIII).
 
-    The input date must be in the interval from 22nd September 1792 (first day
+    On the HP-41CX, the input date must be in the interval from 22nd September 1792 (first day
     of the French Revolutionary calendar) to 10th September 4320 (highest day
     allowed by the HP-41CX).
+- fr: |
+    Le programme permet aux utilisateurs de HP-41CV d'utiliser la fonction <tt>DDAYS</tt>.
+    Par rapport à la version intrinsèque de la HP-41CX, les inconvénients sont l'utilisation
+    des registres R00 à R03, ainsi que le fait que le format JJ,MMAAAA ou MM,JJAAAA est figé.
+    L'avantage est que l'on peut utiliser des dates au-delà du 10 septembre 4320.
+- en: |
+    The program allows HP-41CV users to use the <tt>DDAYS</tt> function. Compared with the
+    version built in the HP-41CX, there are two drawbacks: the use of R00 to R03 registers,
+    and the fact that you cannot switch between DD.MMYYYY and MM.DDYYYY formats at will.
+    The good point is that you can use dates beyond 10th September 4320.
 - section: 0
   'fr,en': Installation
 - section: 0
