@@ -59,12 +59,14 @@ calfr-cv-mdy: code41
     allowed by the HP-41CX).
 - fr: |
     Le programme permet aux utilisateurs de HP-41CV d'utiliser la fonction <tt>DDAYS</tt>.
-    Par rapport à la version intrinsèque de la HP-41CX, les inconvénients sont l'utilisation
+    Par rapport à la version intrinsèque de la HP-41CX, les inconvénients sont 
+    la taille accrue du programme, l'utilisation
     des registres R00 à R03, ainsi que le fait que le format JJ,MMAAAA ou MM,JJAAAA est figé.
     L'avantage est que l'on peut utiliser des dates au-delà du 10 septembre 4320.
 - en: |
     The program allows HP-41CV users to use the <tt>DDAYS</tt> function. Compared with the
-    version built in the HP-41CX, there are two drawbacks: the use of R00 to R03 registers,
+    version built in the HP-41CX, there are three drawbacks: the increased size of the
+    program, the use of R00 to R03 registers,
     and the fact that you cannot switch between DD.MMYYYY and MM.DDYYYY formats at will.
     The good point is that you can use dates beyond 10th September 4320.
 - section: 0
