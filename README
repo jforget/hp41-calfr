@@ -18,7 +18,7 @@ https://github.com/jforget/perl-literate-prog-HP48-HP50
 
 This  tool must  not  be installed  on  the HP  calculator,  but on  a
 computer  (PC or  other). You  need other  software on  this computer:
-Graphviz, Perl and the Perl modules YAML.pl and GrapViz.pm.
+Graphviz, Perl and the Perl modules YAML.pm and GrapViz.pm.
 
 http://www.graphviz.org/
 http://www.perl.org/
