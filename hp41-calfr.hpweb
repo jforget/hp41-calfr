@@ -45,7 +45,7 @@ calfr-cv-mdy: code41
     on the HP-41CX, used the format currently defined by
     the last <tt>DMY</tt> or <tt>MDY</tt> operation),
     go to the beginning of the program (<tt>RTN</tt>) then
-    run it (<tt>R/S</tt>). You can run the program with
+    run it (<tt>R/S</tt>). Or you can run the program with
     <tt>XEQ alpha CALFR alpha</tt>.
 
     The result is in the alpha register, in <tt>DD MON YYYY</tt>
@@ -190,11 +190,11 @@ calfr-cv-mdy: code41
 - fr: |
     À noter que cela fonctionne sous le shell de Cygwin, en utilisant des
     slashs pour les paramètres, même si vous êtes habitués à des tirets.
-    Ensuite, chargez le programme dans v41 avec File -&gt; Get User Code...
+    Ensuite, chargez le programme dans v41 avec File → Get User Code...
 - en: |
     And it works even with the Unix-like shell from Cygwin,
     using slashes for the parameters, even if you are used to type dashes.
-    And then, load the program into the v41 emulator with File -&gt; Get User Code...
+    And then, load the program into the v41 emulator with File → Get User Code...
 - section: 0
   'fr,en': nonpareil
 - fr: |
@@ -416,7 +416,7 @@ calfr-cv-mdy: code41
     indiquent le résultat du calcul de la fonction.
 - en: |
     See below the comparison between both rules for the beginning
-    of the Republican Era. The two "arithmetic" columns simulate
+    of the Republican Era. The two "Arithmetic" columns simulate
     the hypothesis of applying the arithmetic rule from the beginning
     of the era. The "Astronomical" columns show the actual case,
     with the astronomical rule at first and the arithmetic rule
@@ -580,7 +580,7 @@ calfr-cv-mdy: code41
     "S-C"
     rtn
 - section: ddays
-  fr: Calcul du nombre de bours entre deux dates
+  fr: Calcul du nombre de jours entre deux dates
   en: Computing the number of days between two dates
   calfr-cv-dmy: 1
   calfr-cv-mdy: 1

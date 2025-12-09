@@ -113,7 +113,7 @@ hp41uc /t=calfr-cx /r=calfr-cx.raw /n
 
 À noter que cela fonctionne sous le shell de Cygwin, en utilisant des
 slashs pour les paramètres, même si vous êtes habitués à des tirets.
-Ensuite, chargez le programme dans v41 avec File -&gt; Get User Code...
+Ensuite, chargez le programme dans v41 avec File → Get User Code...
 
 
 ## nonpareil
@@ -445,7 +445,7 @@ lbl 13
 rtn
 ```
 
-## `ddays` - Calcul du nombre de bours entre deux dates
+## `ddays` - Calcul du nombre de jours entre deux dates
 
 ```
 lbl "DDAYS"

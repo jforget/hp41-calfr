@@ -111,7 +111,7 @@ And then, switch to v41 and execute:
 
 <pre>
 GTO ..
-File -&gt; Get User Code...
+File → Get User Code...
 </pre>
 
 

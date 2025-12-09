@@ -108,7 +108,7 @@ Ensuite, sous l'émulateur v41, il ne reste plus qu'à faire&nbsp;:
 
 <pre>
 GTO ..
-File -&gt; Get User Code...
+File → Get User Code...
 </pre>
 
 

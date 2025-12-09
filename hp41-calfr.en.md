@@ -18,7 +18,7 @@ Enter the date in <tt>dd.mmyyyy</tt> or <tt>mm.ddyyyy</tt> format into the X reg
 on the HP-41CX, used the format currently defined by
 the last <tt>DMY</tt> or <tt>MDY</tt> operation),
 go to the beginning of the program (<tt>RTN</tt>) then
-run it (<tt>R/S</tt>). You can run the program with
+run it (<tt>R/S</tt>). Or you can run the program with
 <tt>XEQ alpha CALFR alpha</tt>.
 
 The result is in the alpha register, in <tt>DD MON YYYY</tt>
@@ -108,7 +108,7 @@ hp41uc /t=calfr-cx /r=calfr-cx.raw /n
 
 And it works even with the Unix-like shell from Cygwin,
 using slashes for the parameters, even if you are used to type dashes.
-And then, load the program into the v41 emulator with File -&gt; Get User Code...
+And then, load the program into the v41 emulator with File → Get User Code...
 
 
 ## nonpareil
@@ -281,7 +281,7 @@ rule, introduced by Gilbert Romme's reform.
 
 
 See below the comparison between both rules for the beginning
-of the Republican Era. The two "arithmetic" columns simulate
+of the Republican Era. The two "Arithmetic" columns simulate
 the hypothesis of applying the arithmetic rule from the beginning
 of the era. The "Astronomical" columns show the actual case,
 with the astronomical rule at first and the arithmetic rule

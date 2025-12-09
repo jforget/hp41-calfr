@@ -184,7 +184,7 @@ tst-cmp: code41
 - 'fr,en': |
     <pre>
     GTO ..
-    File -&gt; Get User Code...
+    File → Get User Code...
     </pre>
 - section: 0
   'fr,en': nonpareil
