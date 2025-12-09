@@ -6,7 +6,7 @@
 
 Ce programme pour HP-41CV ou HP-41CX permet de convertir une date du calendrier
 grégorien vers le calendrier républicain. Il n'est pas
-limité à la période réelle d'utilisation du calendrier 
+limité à la période réelle d'utilisation du calendrier
 républicain, vous pouvez demander la conversion de toute
 date des XIX<sup>e</sup>, XX<sup>e</sup> et XXI<sup>e</sup>
 siècles.
@@ -14,14 +14,14 @@ siècles.
 
 ## Mode d'emploi
 
-Entrez la date au format <tt>jj.mmaaaa</tt> ou <tt>mm.jjaaaa</tt> 
+Entrez la date au format <tt>jj.mmaaaa</tt> ou <tt>mm.jjaaaa</tt>
 (selon la variante choisie du programme pour HP-41CV ou selon
 le paramétrage de la calculatrice HP-41CX) dans le registre X,
-positionnez-vous au début du programme (<tt>RTN</tt>) puis 
-lancez-le (<tt>R/S</tt>). Ou bien lancez-le par 
+positionnez-vous au début du programme (<tt>RTN</tt>) puis
+lancez-le (<tt>R/S</tt>). Ou bien lancez-le par
 <tt>XEQ alpha CALFR alpha</tt>.
 
-Le résultat se trouve dans le registre alpha, au format 
+Le résultat se trouve dans le registre alpha, au format
 <tt>JJ MOIS AAAA</tt>, où <tt>MOIS</tt> est l'abréviation en trois lettres
 du mois.
 
@@ -33,7 +33,7 @@ républicain) et le 10 septembre 4320 (date limite imposée par la HP-41CX).
 
 
 Le programme permet aux utilisateurs de HP-41CV d'utiliser la fonction <tt>DDAYS</tt>.
-Par rapport à la version intrinsèque de la HP-41CX, les inconvénients sont 
+Par rapport à la version intrinsèque de la HP-41CX, les inconvénients sont
 la taille accrue du programme, l'utilisation
 des registres R00 à R03, ainsi que le fait que le format JJ,MMAAAA ou MM,JJAAAA est figé.
 L'avantage est que l'on peut utiliser des dates au-delà du 10 septembre 4320.
@@ -43,12 +43,12 @@ L'avantage est que l'on peut utiliser des dates au-delà du 10 septembre 4320.
 
 ### Pré-requis
 
-Ce programme nécessite une HP-41CV ou une HP-41CX. 
+Ce programme nécessite une HP-41CV ou une HP-41CX.
 
 Le programme utilise les mémoires 00 à 06.
 
 Il n'y a pas d'instruction de programmation synthétique dans
-la version CX, mais il y a un <tt>rcl&nbsp;d</tt> et un <tt>sto&nbsp;d</tt> dans les 
+la version CX, mais il y a un <tt>rcl&nbsp;d</tt> et un <tt>sto&nbsp;d</tt> dans les
 versions CV, pour compenser l'absence de <tt>rclflag</tt>
 et <tt>stoflag</tt>
 
@@ -57,7 +57,7 @@ et <tt>stoflag</tt>
 
 Si vous disposez d'une HP-41CX et si vous ne vous intéressez
 pas aux dates postérieures au 10 septembre 4320, alors
-utilisez le fichier <tt>calfr-cx</tt>. Le programme de ce 
+utilisez le fichier <tt>calfr-cx</tt>. Le programme de ce
 fichier utilise la fonction <tt>DDAYS</tt> du module TIME
 inclus dans la HP-41CX.
 
@@ -80,7 +80,7 @@ traiter les deux formats, sans problème.
 
 L'ajout de chaîne (le symbole «&nbsp;<tt>|-</tt>&nbsp;») se représente
 par la notation <tt>&gt;"chaine"</tt>. Le signe supérieur
-à l'extérieur des guillemets est censé représenter le 
+à l'extérieur des guillemets est censé représenter le
 symbole «&nbsp;<tt>|-</tt>&nbsp;» qui se serait trouvé à l'intérieur
 des guillemets. C'est l'une des notations utilisées
 par <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>hp41uc</tt></a>.
@@ -120,7 +120,7 @@ Ensuite, chargez le programme dans v41 avec File -&gt; Get User Code...
 
 Pour l'émulateur «&nbsp;nonpareil&nbsp;», la seule façon
 que je connaisse consiste à tout taper, de début jusqu'à la
-fin. Si je trouve mieux, je vous l'indiquerai dans une 
+fin. Si je trouve mieux, je vous l'indiquerai dans une
 nouvelle version de cette distribution.
 
 
@@ -184,14 +184,14 @@ le <i lang='en'>Modified Julian Day Number</i> et le
 du calendrier grégorien proleptique, le 1<sup>er</sup> janvier de l'an 1.
 J'utilise ici sa variante républicaine, que j'ai appelée
 <i lang='la'>Franciscus Revolutionarius Rata Die</i> ou FRRD, qui compte les
-jours à partir du 1<sup>er</sup> vendémiaire de l'an I, soit le 
+jours à partir du 1<sup>er</sup> vendémiaire de l'an I, soit le
 22 septembre 1792. Ce jour porte le numéro FRRD 0 pour des raisons
 de commodité de programmation.
 
 Au sujet du calcul sur la HP-41CX&nbsp;: au lieu de calculer le nombre de jours entre
 la date donnée et le 22 septembre 1792, on calcule le nombre de jours
 entre la date et le 9 septembre 1792, puis on retire les 13 jours excédentaires.
-Pourquoi&nbsp;? Parce qu'ainsi, le programme sert aussi bien en mode 
+Pourquoi&nbsp;? Parce qu'ainsi, le programme sert aussi bien en mode
 <tt>DMY</tt> qu'en mode <tt>MDY</tt>, sans avoir besoin de tester le drapeau 31.
 
 
@@ -221,7 +221,7 @@ Le mois figure sous forme numérique dans le registre 02
 et il est converti dans le registre alpha par l'appel
 indirect des labels 01 à 13 (12 = "FRU" pour Fructidor
 et 13 pour les cinq ou six jours complémentaires,
-«&nbsp;sans-culottides&nbsp;» abrégés en "S-C"). Ensuite, le 
+«&nbsp;sans-culottides&nbsp;» abrégés en "S-C"). Ensuite, le
 mois en 3 caractères est stocké dans le registre Y
 puis, dans le registre alpha, le programme affiche
 dans l'ordre le jour, le mois et l'année avec des
@@ -230,7 +230,7 @@ blancs intermédiaires.
 Certes, faire passer le mois par le registre Y
 nécessite l'utilisation de plusieurs pas de programme,
 donc de plusieurs octets, mais cela permet dans les
-labels 01 à 13 de saisir l'abréviation du mois sur 
+labels 01 à 13 de saisir l'abréviation du mois sur
 3 caractères, sans le caractère «&nbsp;append&nbsp;»,
 ce qui aurait ajouté 13 octets à la taille du programme.
 
@@ -286,7 +286,7 @@ obtenue en prenant des années à 365&nbsp;jours.
 La règle pour les années bissextiles était une règle astronomique
 jusqu'en l'an XX, le premier Vendémiaire devant coïncider avec
 l'équinoxe d'automne. Ensuite, la réforme de Gilbert Romme
-aurait fait appliquer une règle arithmétique analogue à 
+aurait fait appliquer une règle arithmétique analogue à
 celle du calendrier grégorien.
 
 

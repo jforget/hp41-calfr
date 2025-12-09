@@ -9,7 +9,7 @@ calfr-cv-mdy: code41
 - fr: |
     Ce programme pour HP-41CV ou HP-41CX permet de convertir une date du calendrier
     grégorien vers le calendrier républicain. Il n'est pas
-    limité à la période réelle d'utilisation du calendrier 
+    limité à la période réelle d'utilisation du calendrier
     républicain, vous pouvez demander la conversion de toute
     date des XIX<sup>e</sup>, XX<sup>e</sup> et XXI<sup>e</sup>
     siècles.
@@ -23,14 +23,14 @@ calfr-cv-mdy: code41
   fr: Mode d'emploi
   en: Instructions for Use
 - fr: |
-    Entrez la date au format <tt>jj.mmaaaa</tt> ou <tt>mm.jjaaaa</tt> 
+    Entrez la date au format <tt>jj.mmaaaa</tt> ou <tt>mm.jjaaaa</tt>
     (selon la variante choisie du programme pour HP-41CV ou selon
     le paramétrage de la calculatrice HP-41CX) dans le registre X,
-    positionnez-vous au début du programme (<tt>RTN</tt>) puis 
-    lancez-le (<tt>R/S</tt>). Ou bien lancez-le par 
+    positionnez-vous au début du programme (<tt>RTN</tt>) puis
+    lancez-le (<tt>R/S</tt>). Ou bien lancez-le par
     <tt>XEQ alpha CALFR alpha</tt>.
 
-    Le résultat se trouve dans le registre alpha, au format 
+    Le résultat se trouve dans le registre alpha, au format
     <tt>JJ MOIS AAAA</tt>, où <tt>MOIS</tt> est l'abréviation en trois lettres
     du mois.
 
@@ -42,9 +42,9 @@ calfr-cv-mdy: code41
 - en: |
     Enter the date in <tt>dd.mmyyyy</tt> or <tt>mm.ddyyyy</tt> format into the X register
     (on the HP-41CV, use the format corresponding to the program variant you chose;
-    on the HP-41CX, used the format currently defined by 
+    on the HP-41CX, used the format currently defined by
     the last <tt>DMY</tt> or <tt>MDY</tt> operation),
-    go to the beginning of the program (<tt>RTN</tt>) then 
+    go to the beginning of the program (<tt>RTN</tt>) then
     run it (<tt>R/S</tt>). You can run the program with
     <tt>XEQ alpha CALFR alpha</tt>.
 
@@ -59,7 +59,7 @@ calfr-cv-mdy: code41
     allowed by the HP-41CX).
 - fr: |
     Le programme permet aux utilisateurs de HP-41CV d'utiliser la fonction <tt>DDAYS</tt>.
-    Par rapport à la version intrinsèque de la HP-41CX, les inconvénients sont 
+    Par rapport à la version intrinsèque de la HP-41CX, les inconvénients sont
     la taille accrue du programme, l'utilisation
     des registres R00 à R03, ainsi que le fait que le format JJ,MMAAAA ou MM,JJAAAA est figé.
     L'avantage est que l'on peut utiliser des dates au-delà du 10 septembre 4320.
@@ -76,12 +76,12 @@ calfr-cv-mdy: code41
   en: Prerequisite
   level: 3
 - fr: |
-    Ce programme nécessite une HP-41CV ou une HP-41CX. 
+    Ce programme nécessite une HP-41CV ou une HP-41CX.
 
     Le programme utilise les mémoires 00 à 06.
 
     Il n'y a pas d'instruction de programmation synthétique dans
-    la version CX, mais il y a un <tt>rcl&nbsp;d</tt> et un <tt>sto&nbsp;d</tt> dans les 
+    la version CX, mais il y a un <tt>rcl&nbsp;d</tt> et un <tt>sto&nbsp;d</tt> dans les
     versions CV, pour compenser l'absence de <tt>rclflag</tt>
     et <tt>stoflag</tt>
 - en: |
@@ -99,7 +99,7 @@ calfr-cv-mdy: code41
 - fr: |
     Si vous disposez d'une HP-41CX et si vous ne vous intéressez
     pas aux dates postérieures au 10 septembre 4320, alors
-    utilisez le fichier <tt>calfr-cx</tt>. Le programme de ce 
+    utilisez le fichier <tt>calfr-cx</tt>. Le programme de ce
     fichier utilise la fonction <tt>DDAYS</tt> du module TIME
     inclus dans la HP-41CX.
 
@@ -141,7 +141,7 @@ calfr-cv-mdy: code41
 - fr: |
     L'ajout de chaîne (le symbole «&nbsp;<tt>|-</tt>&nbsp;») se représente
     par la notation <tt>&gt;"chaine"</tt>. Le signe supérieur
-    à l'extérieur des guillemets est censé représenter le 
+    à l'extérieur des guillemets est censé représenter le
     symbole «&nbsp;<tt>|-</tt>&nbsp;» qui se serait trouvé à l'intérieur
     des guillemets. C'est l'une des notations utilisées
     par <a href="http://www.hpmuseum.org/software/41uc.htm#rules"><tt>hp41uc</tt></a>.
@@ -183,8 +183,7 @@ calfr-cv-mdy: code41
     For the v41 emulator, use the
     <a href="http://www.hpmuseum.org/software/41uc.htm">hp41uc</a>
     tool to convert the text file into raw format. Just type:
-- 
-  'fr,en': |
+- 'fr,en': |
     <pre>
     hp41uc /t=calfr-cx /r=calfr-cx.raw /n
     </pre>
@@ -201,7 +200,7 @@ calfr-cv-mdy: code41
 - fr: |
     Pour l'émulateur «&nbsp;nonpareil&nbsp;», la seule façon
     que je connaisse consiste à tout taper, de début jusqu'à la
-    fin. Si je trouve mieux, je vous l'indiquerai dans une 
+    fin. Si je trouve mieux, je vous l'indiquerai dans une
     nouvelle version de cette distribution.
 - en: |
     For the "nonpareil" simulator, the only way that I know to
@@ -271,14 +270,14 @@ calfr-cv-mdy: code41
     du calendrier grégorien proleptique, le 1<sup>er</sup> janvier de l'an 1.
     J'utilise ici sa variante républicaine, que j'ai appelée
     <i lang='la'>Franciscus Revolutionarius Rata Die</i> ou FRRD, qui compte les
-    jours à partir du 1<sup>er</sup> vendémiaire de l'an I, soit le 
+    jours à partir du 1<sup>er</sup> vendémiaire de l'an I, soit le
     22 septembre 1792. Ce jour porte le numéro FRRD 0 pour des raisons
     de commodité de programmation.
 
     Au sujet du calcul sur la HP-41CX&nbsp;: au lieu de calculer le nombre de jours entre
     la date donnée et le 22 septembre 1792, on calcule le nombre de jours
     entre la date et le 9 septembre 1792, puis on retire les 13 jours excédentaires.
-    Pourquoi&nbsp;? Parce qu'ainsi, le programme sert aussi bien en mode 
+    Pourquoi&nbsp;? Parce qu'ainsi, le programme sert aussi bien en mode
     <tt>DMY</tt> qu'en mode <tt>MDY</tt>, sans avoir besoin de tester le drapeau 31.
 - en: |
     Usually, the programs converting from a calendar to another use
@@ -288,7 +287,7 @@ calfr-cv-mdy: code41
     Day Number and the <i lang='la'>Rata Die</i>, which counts the days
     since the epoch of the proleptic Gregorian Calendar, that is,
     1 January of year 1. My program uses a variant,
-    <i lang='la'>Franciscus Revolutionarius Rata Die</i> or FRRD, 
+    <i lang='la'>Franciscus Revolutionarius Rata Die</i> or FRRD,
     which counts the days since the epoch of the French Revolutionary Calendar,
     1 Vendémiaire I or 22 September 1792.
     This day has number 0 in this system, so the program will be simpler.
@@ -323,7 +322,7 @@ calfr-cv-mdy: code41
     et il est converti dans le registre alpha par l'appel
     indirect des labels 01 à 13 (12 = "FRU" pour Fructidor
     et 13 pour les cinq ou six jours complémentaires,
-    «&nbsp;sans-culottides&nbsp;» abrégés en "S-C"). Ensuite, le 
+    «&nbsp;sans-culottides&nbsp;» abrégés en "S-C"). Ensuite, le
     mois en 3 caractères est stocké dans le registre Y
     puis, dans le registre alpha, le programme affiche
     dans l'ordre le jour, le mois et l'année avec des
@@ -332,7 +331,7 @@ calfr-cv-mdy: code41
     Certes, faire passer le mois par le registre Y
     nécessite l'utilisation de plusieurs pas de programme,
     donc de plusieurs octets, mais cela permet dans les
-    labels 01 à 13 de saisir l'abréviation du mois sur 
+    labels 01 à 13 de saisir l'abréviation du mois sur
     3 caractères, sans le caractère «&nbsp;append&nbsp;»,
     ce qui aurait ajouté 13 octets à la taille du programme.
 - en: |
@@ -349,7 +348,7 @@ calfr-cv-mdy: code41
     Of course, you need a few program steps, therefore a few
     bytes, to store the month abbreviation into register Y
     and then to retrieve it, but this allows to write
-    the month abbreviations in labels 01 to 13 without 
+    the month abbreviations in labels 01 to 13 without
     the "append" character, which saves 13 bytes.
 - code: |
     xeq ind 02
@@ -392,7 +391,7 @@ calfr-cv-mdy: code41
     La règle pour les années bissextiles était une règle astronomique
     jusqu'en l'an XX, le premier Vendémiaire devant coïncider avec
     l'équinoxe d'automne. Ensuite, la réforme de Gilbert Romme
-    aurait fait appliquer une règle arithmétique analogue à 
+    aurait fait appliquer une règle arithmétique analogue à
     celle du calendrier grégorien.
 - en: |
     This subroutine gives the number of leap years preceding
@@ -401,7 +400,7 @@ calfr-cv-mdy: code41
     365-day years.
 
     Until year XX, the leap year rule is an astronomical rule,
-    considering the 1st Vendémiaire should happen on the 
+    considering the 1st Vendémiaire should happen on the
     fall equinox. Then from year XX on, there would have
     been an arithmetical rule, similar to the Gregorian Calendar
     rule, introduced by Gilbert Romme's reform.
@@ -419,7 +418,7 @@ calfr-cv-mdy: code41
     See below the comparison between both rules for the beginning
     of the Republican Era. The two "arithmetic" columns simulate
     the hypothesis of applying the arithmetic rule from the beginning
-    of the era. The "Astronomical" columns show the actual case, 
+    of the era. The "Astronomical" columns show the actual case,
     with the astronomical rule at first and the arithmetic rule
     after. The columns "Leap?" indicates leap years with an "X".
     The columns "frbis" show the result of the computation.
@@ -432,8 +431,7 @@ calfr-cv-mdy: code41
     <tr align='center'><td>     </td><td colspan='2'> Arithmetic </td><td colspan='2'>Astronomical</td></tr>
     <tr align='center'><td>Year </td><td>Leap?</td><td>frbis </td><td>Leap?</td><td>frbis </td></tr>
 
-- 
-  'en,fr': |
+- 'en,fr': |
     <tr align='center'><td>  1  </td><td>&nbsp;</td><td>  0   </td><td>&nbsp;</td><td>  0   </td></tr>
     <tr align='center'><td>  2  </td><td>&nbsp;</td><td>  0   </td><td>&nbsp;</td><td>  0   </td></tr>
     <tr align='center'><td>  3  </td><td>&nbsp;</td><td>  0   </td><td>  x   </td><td>  0   </td></tr>
@@ -474,7 +472,7 @@ calfr-cv-mdy: code41
     starting from year I
     and then checks the year, tweaking the result is the year
     is one of the four exceptions. Remember that the subroutine begins
-    with subtracting 1 from the year, therefore the values to 
+    with subtracting 1 from the year, therefore the values to
     check are 3, 7, 11 and 15.
 
 - code: |
@@ -537,8 +535,8 @@ calfr-cv-mdy: code41
     sachant que le registre R02 contient le mois sous forme
     numérique.
 - en: |
-    This section gives the abbreviated month from the 
-    French Revolutionary calendar. One of these labels 
+    This section gives the abbreviated month from the
+    French Revolutionary calendar. One of these labels
     is called by <tt>XEQ IND 02</tt>, because the R02
     register contains the numeric month.
 - code: |

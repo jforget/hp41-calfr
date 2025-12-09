@@ -18,7 +18,7 @@ Si vous avez adopté l'une des variantes pour HP-41CV, utilisez les cinq fichier
 correspondant au format <tt>DMY</tt> ou <tt>MDY</tt> que vous avez installé.
 
 
-Positionnez votre HP-41CX en mode <tt>DMY</tt> ou <tt>MDY</tt> selon le fichier 
+Positionnez votre HP-41CX en mode <tt>DMY</tt> ou <tt>MDY</tt> selon le fichier
 utilisé. Ce n'est pas nécessaire pour la HP-41CV, le format étant codé "en dur".
 Lancez le programme. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
 c'est qu'il y a une erreur. La date grégorienne utilisée se trouve dans le
@@ -116,7 +116,7 @@ File -&gt; Get User Code...
 
 Pour l'émulateur «&nbsp;nonpareil&nbsp;», la seule façon
 que je connaisse consiste à tout taper, de début jusqu'à la
-fin. Si je trouve mieux, je vous l'indiquerai dans une 
+fin. Si je trouve mieux, je vous l'indiquerai dans une
 nouvelle version de cette distribution.
 
 

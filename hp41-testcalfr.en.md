@@ -22,12 +22,12 @@ Set-up you HP-41CX in <tt>DMY</tt> or <tt>MDY</tt> mode, depending on which
 test file you run. This step is not necessary on the HP-41CV, because
 the date format is hard-coded. Run the program.
 If it stops with a <tt>TONE&nbsp;0</tt>, there has been an
-error. The Gregorian date is in register X, the expected 
+error. The Gregorian date is in register X, the expected
 French Revolutionary date is in register alpha.
 
 If the program has stopped, you can press <tt>R/S</tt> to continue
-with the following tests. At the end, the program displays 
-<tt>SUCCES</tt> for success, of <tt>ECHEC</tt> for failure. 
+with the following tests. At the end, the program displays
+<tt>SUCCES</tt> for success, of <tt>ECHEC</tt> for failure.
 The binary indicator 0 is another way to signal failure.
 
 

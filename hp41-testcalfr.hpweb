@@ -38,7 +38,7 @@ tst-cmp: code41
     If you have installed either HP-41CV variant, use the test files with
     the corresponding <tt>DMY</tt> or <tt>MDY</tt> format.
 - fr: |
-    Positionnez votre HP-41CX en mode <tt>DMY</tt> ou <tt>MDY</tt> selon le fichier 
+    Positionnez votre HP-41CX en mode <tt>DMY</tt> ou <tt>MDY</tt> selon le fichier
     utilisé. Ce n'est pas nécessaire pour la HP-41CV, le format étant codé "en dur".
     Lancez le programme. S'il s'arrête avec un <tt>TONE&nbsp;0</tt>,
     c'est qu'il y a une erreur. La date grégorienne utilisée se trouve dans le
@@ -52,12 +52,12 @@ tst-cmp: code41
     test file you run. This step is not necessary on the HP-41CV, because
     the date format is hard-coded. Run the program.
     If it stops with a <tt>TONE&nbsp;0</tt>, there has been an
-    error. The Gregorian date is in register X, the expected 
+    error. The Gregorian date is in register X, the expected
     French Revolutionary date is in register alpha.
 
     If the program has stopped, you can press <tt>R/S</tt> to continue
-    with the following tests. At the end, the program displays 
-    <tt>SUCCES</tt> for success, of <tt>ECHEC</tt> for failure. 
+    with the following tests. At the end, the program displays
+    <tt>SUCCES</tt> for success, of <tt>ECHEC</tt> for failure.
     The binary indicator 0 is another way to signal failure.
 - section: 0
   'fr,en': Installation
@@ -181,8 +181,7 @@ tst-cmp: code41
     to write your own script with your preferred syntax.
 
     And then, switch to v41 and execute:
-- 
-  'fr,en': |
+- 'fr,en': |
     <pre>
     GTO ..
     File -&gt; Get User Code...
@@ -192,7 +191,7 @@ tst-cmp: code41
 - fr: |
     Pour l'émulateur «&nbsp;nonpareil&nbsp;», la seule façon
     que je connaisse consiste à tout taper, de début jusqu'à la
-    fin. Si je trouve mieux, je vous l'indiquerai dans une 
+    fin. Si je trouve mieux, je vous l'indiquerai dans une
     nouvelle version de cette distribution.
 - en: |
     For the "nonpareil" simulator, the only way that I know to

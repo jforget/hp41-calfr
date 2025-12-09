@@ -15,9 +15,9 @@ later dates, in the whole XIXth, XXth and XXIst centuries.
 
 Enter the date in <tt>dd.mmyyyy</tt> or <tt>mm.ddyyyy</tt> format into the X register
 (on the HP-41CV, use the format corresponding to the program variant you chose;
-on the HP-41CX, used the format currently defined by 
+on the HP-41CX, used the format currently defined by
 the last <tt>DMY</tt> or <tt>MDY</tt> operation),
-go to the beginning of the program (<tt>RTN</tt>) then 
+go to the beginning of the program (<tt>RTN</tt>) then
 run it (<tt>R/S</tt>). You can run the program with
 <tt>XEQ alpha CALFR alpha</tt>.
 
@@ -177,7 +177,7 @@ a given epoch. There are the Julian Day Number, the Modifier Julian
 Day Number and the <i lang='la'>Rata Die</i>, which counts the days
 since the epoch of the proleptic Gregorian Calendar, that is,
 1 January of year 1. My program uses a variant,
-<i lang='la'>Franciscus Revolutionarius Rata Die</i> or FRRD, 
+<i lang='la'>Franciscus Revolutionarius Rata Die</i> or FRRD,
 which counts the days since the epoch of the French Revolutionary Calendar,
 1 Vendémiaire I or 22 September 1792.
 This day has number 0 in this system, so the program will be simpler.
@@ -222,7 +222,7 @@ the day, the month and the year separated by whitespace.
 Of course, you need a few program steps, therefore a few
 bytes, to store the month abbreviation into register Y
 and then to retrieve it, but this allows to write
-the month abbreviations in labels 01 to 13 without 
+the month abbreviations in labels 01 to 13 without
 the "append" character, which saves 13 bytes.
 
 
@@ -274,7 +274,7 @@ the date computation, initialised with a computation using only
 365-day years.
 
 Until year XX, the leap year rule is an astronomical rule,
-considering the 1st Vendémiaire should happen on the 
+considering the 1st Vendémiaire should happen on the
 fall equinox. Then from year XX on, there would have
 been an arithmetical rule, similar to the Gregorian Calendar
 rule, introduced by Gilbert Romme's reform.
@@ -283,7 +283,7 @@ rule, introduced by Gilbert Romme's reform.
 See below the comparison between both rules for the beginning
 of the Republican Era. The two "arithmetic" columns simulate
 the hypothesis of applying the arithmetic rule from the beginning
-of the era. The "Astronomical" columns show the actual case, 
+of the era. The "Astronomical" columns show the actual case,
 with the astronomical rule at first and the arithmetic rule
 after. The columns "Leap?" indicates leap years with an "X".
 The columns "frbis" show the result of the computation.
@@ -327,7 +327,7 @@ and XVI. So the subroutine applies the arithmetical rule
 starting from year I
 and then checks the year, tweaking the result is the year
 is one of the four exceptions. Remember that the subroutine begins
-with subtracting 1 from the year, therefore the values to 
+with subtracting 1 from the year, therefore the values to
 check are 3, 7, 11 and 15.
 
 
@@ -385,8 +385,8 @@ rtn
 
 ## `months` - Month abbreviations
 
-This section gives the abbreviated month from the 
-French Revolutionary calendar. One of these labels 
+This section gives the abbreviated month from the
+French Revolutionary calendar. One of these labels
 is called by <tt>XEQ IND 02</tt>, because the R02
 register contains the numeric month.
 
